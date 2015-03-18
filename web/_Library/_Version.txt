@@ -1,0 +1,18 @@
+// O-R-G 
+// _ Library version 1.1.8
+//
+// Last updated June 28, 2011
+// 
+// Built on _ Library functions by Stewart Smith while at O-R-G
+// Updated and expanded by David Reinfurt
+
+--
+
+1/10/2011 -- added systemCookie
+4/26/2011 -- Added downloadPDF, adjusted displayMedia to allow for variable widths and height specs, deprecated and removed systemMedia
+5/3/2011 -- adjusted and cleaned displayNavigation to use divs 
+5/17/2011 -- displayMedia adjusted to make either height or width = 100%
+6/22/2011 -- displayNavigation added multiColumn settings
+6/27/2011 -- displayMedia added display PNG function
+9/26/2011 -- added $showImages to display images in place of text in the menu
+9/28/2011 -- cleaned up partial url display by checking and correcting in advance of display

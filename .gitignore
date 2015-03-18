@@ -1,0 +1,10 @@
+# old website files
+old/**
+web/old/**
+
+# database settings
+**systemDatabase.php
+**config.php
+
+# server scripts
+scripts/**

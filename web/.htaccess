@@ -1,0 +1,30 @@
+AuthType Basic
+AuthName "Kunstverein Muenchen"
+AuthUserFile /kunden/98668_22767/rp-hosting/20082/20084/km-2015/.htpasswd
+Require valid-user
+
+Options +FollowSymLinks
+IndexIgnore */*
+
+# Turn on the RewriteEngine
+RewriteEngine On
+
+#  Rules
+RewriteCond %{HTTP_HOST} ^kunstverein-muenchen\.de$ [NC]
+RewriteRule ^(.*)$ http://www.kunstverein-muenchen.de/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# what-cant-be-played was originally created as what-can-be-played,
+# redirect requests to the new page
+RewriteRule ^de/what-can-be-played /de/what-cant-be-played [R=301,L]
+RewriteRule ^en/what-can-be-played /en/what-cant-be-played [R=301,L]
+
+RewriteRule ^de /index.php
+RewriteRule ^elementfiles /index.php
+RewriteRule ^en /index.php
+RewriteRule ^pressfiles /index.php
+RewriteRule ^pagefiles /index.php
+RewriteRule ^admin /index.php
+RewriteRule ^2008/ http://www.kunstverein-muenchen.de/ [R=301,L]
