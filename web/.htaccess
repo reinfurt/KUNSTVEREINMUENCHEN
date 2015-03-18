@@ -1,7 +1,7 @@
-AuthType Basic
-AuthName "Kunstverein Muenchen"
-AuthUserFile /kunden/98668_22767/rp-hosting/20082/20084/km-2015/.htpasswd
-Require valid-user
+# AuthType Basic
+# AuthName "Kunstverein Muenchen"
+# AuthUserFile /kunden/98668_22767/rp-hosting/20082/20084/km-2015/.htpasswd
+# Require valid-user
 
 Options +FollowSymLinks
 IndexIgnore */*

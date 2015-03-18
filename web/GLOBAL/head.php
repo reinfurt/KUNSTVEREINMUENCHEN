@@ -13,6 +13,12 @@ $ids = explode(",", $id);
 $idFull = $id;
 $id = $ids[count($ids) - 1];
 
+// dev
+$dev = $_REQUEST['dev'];
+$dev = systemCookie("devCookie", $dev, 0);
+if(!$dev) 
+	die('Under construction . . .');
+
 // language
 $lang = $_REQUEST['lang'];
 $lang = systemCookie("langCookie", $lang, time()+60*60*24*30*12);
@@ -75,12 +81,13 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 					$d = date("H:i");
 			?>
 			<div id="header">
-				<div id="date"><?php echo $d;?></div>
+				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
 				<div id="nav">
 					<?php
 						if($showMenu)
 							displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn);
 					?>
+					<div class="clearer"></div>
 				</div>
 				<div id="lang">
 					<span class="<?php if($lang=="de") echo "selected";?>">

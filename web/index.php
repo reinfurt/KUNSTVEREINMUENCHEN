@@ -65,9 +65,12 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		// build random styles
 		$randomPadding = rand(0, 15);
 		$randomPadding *= 10;
-		$randomWidth = rand(20, 50);
-		$randomWidth = rand(2, 5);
+		if ($isMobile)
+			$randomWidth = rand(7, 9);
+		else
+			$randomWidth = rand(2, 5);
 		$randomWidth *= 10;
+		
 		$randomFloat = (rand(0, 1) == 0) ? 'left' : 'right';
 		$icStyle = 'width:'.$randomWidth.'%; ';
 		$icStyle .= 'float:'.$randomFloat.'; ';
@@ -77,12 +80,15 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$images[$i] .= "<div ";
 		$images[$i] .= "id='image".$i."' ";
 		$images[$i] .= "class='imageContainer' ";
-		$images[$i] .= "style='".$icStyle."' ";
 		$images[$i] .= "onclick='launch(".$i.");' ";
-		//$images[$i] .= "data-anchor-target='#image".$i."' ";
-		//$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
-		//$images[$i] .= "data-center-center='transform: translate3d(0px, 0%, 0px);' ";
-		//$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
+		if (!$isMobile)
+		{
+			$images[$i] .= "style='".$icStyle."' ";
+			//$images[$i] .= "data-anchor-target='#image".$i."' ";
+			$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
+			//$images[$i] .= "data-center-center='transform: translate3d(0px, 0%, 0px);' ";
+			$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
+		}
 		$images[$i] .= ">";
 		
 		$images[$i] .= "<div class='image-hover'>";
@@ -105,16 +111,21 @@ $bodyData = ""; // clear skrollr info for body
 
 
 <div class="content" id="skrollr-body">
+	<?php if (!$isMobile) { ?>
 	<div 
 		class="body"
 		<?php echo $bodyData ?>
 	>
 		<?php echo $body; ?>
 	</div>
+	<?php } ?>
 	<?php 
 		if(count($images) > 1) {
 	?>
-	<!--div id="galleryContainer"-->
+		<?php if($isMobile) { ?>
+			<div id="slider" class="swipe">
+				<div class="swipe-wrap">
+		<?php } ?>
 		<?php
 			$html = "";
 			for($i = 0; $i < count($images); $i++)
@@ -122,10 +133,23 @@ $bodyData = ""; // clear skrollr info for body
 			echo $html;
 		?>
 		<?php /* force div to have height */ ?>
+		<?php if($isMobile) { ?>
+				</div>
+		<?php } ?>
 		<div class="clearer"></div>
+		<?php if($isMobile) { ?>
+			</div>
+		<?php } ?>
 	<!--/div-->
 	<?php } ?>
 </div>
+
+<?php if ($isMobile) { ?>
+	<script type='text/javascript' src='GLOBAL/swipe.js'></script>
+	<script type='text/javascript'>
+		window.mySwipe = Swipe(document.getElementById('slider'));
+	</script>
+<?php } ?>
 
 <script type="text/javascript">
 var scroll;

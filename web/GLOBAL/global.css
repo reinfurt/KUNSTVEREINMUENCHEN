@@ -175,6 +175,14 @@ a:hover {
 	#header {
 		position: relative;
 	}
+	
+	#header > div {
+		display: inherit;
+	}
+	
+	#date {
+		float: initial;
+	}
 }
 
 /* skrollr styles */
@@ -195,4 +203,20 @@ html, body {
 	height:100%;
 	overflow:visible;
 	position:relative;
+}
+
+/* swipejs styles */
+.swipe {
+	  overflow: hidden;
+	  visibility: hidden;
+	  position: relative;
+}
+.swipe-wrap {
+	  overflow: hidden;
+	  position: relative;
+}
+.swipe-wrap > div {
+	  float:left;
+	  width:100%;
+	  position: relative;
 }
