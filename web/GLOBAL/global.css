@@ -71,6 +71,11 @@ a:hover {
 	background-color: #183029
 }
 
+.caption {
+	font-size: 12px;
+	padding-top: 2px;
+}
+
 /* utilities */
 .clearer {
 	clear: both;
@@ -84,19 +89,23 @@ a:hover {
 
 #header {
 	position: fixed;
+	top: 0px;
+	left: 0px;
+	margin: 20px;
 	z-index: 500;
 }
 
-#gallery {
+#slider {
 	width: 100vw;
 	height: 100vh;
 }
 
 #ex {
 	cursor: pointer;
-	display: inline-block;
-	float: right;
-	padding: 10px;
+	position: absolute;
+	padding: 15px;
+	right: 0px;
+	top: 0px;
 }
 
 #prev {
@@ -116,6 +125,10 @@ a:hover {
 }
 #mainContainer {
 	margin: 20px;
+}
+
+#nav-container {
+	height: 100%;
 }
 
 #date {
@@ -166,10 +179,12 @@ a:hover {
 		font-size: 20px;
 		line-height: 25px;
 	}
+	
 	.body {
 		max-width:100%;
 		margin-left: auto;
 		margin-right: auto;
+		float: inherit;
 	}
 	
 	#header {
@@ -182,6 +197,10 @@ a:hover {
 	
 	#date {
 		float: initial;
+	}
+	
+	#nav-container {
+		height: initial;
 	}
 }
 
@@ -208,7 +227,7 @@ html, body {
 /* swipejs styles */
 .swipe {
 	  overflow: hidden;
-	  visibility: hidden;
+	  /* visibility: hidden; */
 	  position: relative;
 }
 .swipe-wrap {
@@ -217,6 +236,7 @@ html, body {
 }
 .swipe-wrap > div {
 	  float:left;
-	  width:100%;
+	  width:100vw;
 	  position: relative;
+	  height: 100vh;
 }

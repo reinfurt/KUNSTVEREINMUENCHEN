@@ -121,7 +121,7 @@ function displayNavigation(	$path = "0",
 				echo "<div style='padding-left:" . $multiColumn . "px;'>";
 			
 			// acquiring modernity hack -- not sure if nec for k.m?
-			if ($final && $depth>0) 
+			if ($final && $depth>0)
 				$breadcrumbsMode=TRUE;
 			
 			while ($row = MYSQL_FETCH_ARRAY($res)) 

@@ -51,52 +51,38 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-skrollr">
 	<head>
 		<title><?php echo $documentTitle; ?></title>
-		<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8" /> 
-		<meta http-equiv="Title" content="<?php echo $documentTitle; ?>" />
+		<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8"> 
+		<meta http-equiv="Title" content="<?php echo $documentTitle; ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<link rel="shortcut icon" href="MEDIA/km.png">
-		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css" />
-		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css" />
+		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
+		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
 	</head>
 	<body>
-		<div id="gallery" class="hidden">
-			<div id="prev" onclick='prev();'>
-				<img src="../MEDIA/la.png" style="width: 15px">
-			</div>
-			<div id="next" onclick='next()''>
-				<img src="../MEDIA/ra.png" style="width: 15px">
-			</div>
-			<div id="ex" onclick='closeGallery();'>
-				<img src="../MEDIA/ex.png" style="width: 15px">
-			</div>
-		</div>
-		<div id="logo"><a href="index.php">k.m</a></div>
-		<div id="mainContainer">
-			<?php
-				if($lang == "de")
-					$d = date("H.i");
-				else
-					$d = date("H:i");
-			?>
-			<div id="header">
-				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
-				<div id="nav">
-					<?php
-						if($showMenu)
-							displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn);
-					?>
-					<div class="clearer"></div>
-				</div>
-				<div id="lang">
-					<span class="<?php if($lang=="de") echo "selected";?>">
-						<a href="<?php echo $pageName;?>.php?lang=de">de</a></span> /
-					<span class="<?php if($lang=="en") echo "selected";?>"> 
-						<a href="<?php echo $pageName;?>.php?lang=en">en</a>
-					</span>
-				</div>
+		<div id="logo" class="no-gallery"><a href="index.php">k.m</a></div>		
+		<?php
+			if($lang == "de")
+				$d = date("H.i");
+			else
+				$d = date("H:i");
+		?>
+		<div id="header" class="no-gallery">
+			<div id="date"><a href="index.php"><?php echo $d;?></a></div>
+			<div id="nav">
+				<?php
+					if($showMenu)
+						displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn);
+				?>
 				<div class="clearer"></div>
 			</div>
-			
-			
+			<div id="lang">
+				<span class="<?php if($lang=="de") echo "selected";?>">
+					<a href="<?php echo $pageName;?>.php?lang=de">de</a></span> /
+				<span class="<?php if($lang=="en") echo "selected";?>"> 
+					<a href="<?php echo $pageName;?>.php?lang=en">en</a>
+				</span>
+			</div>
+			<div class="clearer"></div>
+		</div>

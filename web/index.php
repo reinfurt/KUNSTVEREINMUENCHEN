@@ -47,6 +47,8 @@ $i = 0;
 $images[] = "";
 $imageFiles[] ="";
 
+$swipes[] = "";
+
 // reset to row 0
 mysql_data_seek($result, 0);
 
@@ -74,25 +76,23 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$randomFloat = (rand(0, 1) == 0) ? 'left' : 'right';
 		$icStyle = 'width:'.$randomWidth.'%; ';
 		$icStyle .= 'float:'.$randomFloat.'; ';
-		$icStyle .= 'padding-top:'.$randomPadding.'px; ';
+		if(!$isMobile)
+			$icStyle .= 'padding-top:'.$randomPadding.'px; ';
 		$icStyle .= 'margin: 40px;'; 
 
 		$images[$i] .= "<div ";
 		$images[$i] .= "id='image".$i."' ";
 		$images[$i] .= "class='imageContainer' ";
 		$images[$i] .= "onclick='launch(".$i.");' ";
+		$images[$i] .= "style='".$icStyle."' ";
 		if (!$isMobile)
 		{
-			$images[$i] .= "style='".$icStyle."' ";
-			//$images[$i] .= "data-anchor-target='#image".$i."' ";
 			$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
-			//$images[$i] .= "data-center-center='transform: translate3d(0px, 0%, 0px);' ";
 			$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
 		}
 		$images[$i] .= ">";
 		
 		$images[$i] .= "<div class='image-hover'>";
-		
 		$images[$i] .= displayMedia($mediaFile, $mediaCaption, $mediaStyle);
 		$images[$i] .= "</div>";
 		$images[$i] .= "<div class = 'caption'>";
@@ -108,96 +108,56 @@ $bodyData .= "data-end='transform: translate3d(0px, 0%, 0px);' ";
 $bodyData = ""; // clear skrollr info for body
 
 ?>
-
-
-<div class="content" id="skrollr-body">
-	<?php if (!$isMobile) { ?>
-	<div 
-		class="body"
-		<?php echo $bodyData ?>
-	>
-		<?php echo $body; ?>
-	</div>
-	<?php } ?>
-	<?php 
-		if(count($images) > 1) {
-	?>
-		<?php if($isMobile) { ?>
-			<div id="slider" class="swipe">
-				<div class="swipe-wrap">
-		<?php } ?>
-		<?php
-			$html = "";
-			for($i = 0; $i < count($images); $i++)
-				$html .= $images[$i];
-			echo $html;
-		?>
-		<?php /* force div to have height */ ?>
-		<?php if($isMobile) { ?>
-				</div>
-		<?php } ?>
-		<div class="clearer"></div>
-		<?php if($isMobile) { ?>
-			</div>
-		<?php } ?>
-	<!--/div-->
-	<?php } ?>
+<?php if($isMobile) { ?>
+<div id="slider" class='swipe hidden gallery'>
+	<div class='swipe-wrap'><?php
+		for($i = 0; $i < count($imageFiles); $i++)
+		{
+		?><div>
+			<img 
+				src='MEDIA/blank.gif' 
+				width='100%' 
+				height='100%'
+				data-src='<?php echo $imageFiles[$i]; ?>'
+				style='background-image: url(<?php echo $imageFiles[$i] ?>);
+						background-repeat: no-repeat;
+						background-position: center;
+						background-size: cover; '
+			>
+		</div><?php 
+		} 
+	?></div>
 </div>
-
-<?php if ($isMobile) { ?>
-	<script type='text/javascript' src='GLOBAL/swipe.js'></script>
-	<script type='text/javascript'>
-		window.mySwipe = Swipe(document.getElementById('slider'));
-	</script>
 <?php } ?>
 
-<script type="text/javascript">
-var scroll;
-var index;
-var images = <?php echo json_encode($imageFiles); ?>;
-var inGallery = false;
+<div id="nav-container" class='hidden gallery'>
+	<div id="prev" onclick='prev();'>
+		<img src="../MEDIA/la.png" style="width: 15px">
+	</div>
+	<div id="next" onclick='next()''>
+		<img src="../MEDIA/ra.png" style="width: 15px">
+	</div>
+	<div id="ex" onclick='close_gallery();'>
+		<img src="../MEDIA/ex.png" style="width: 15px">
+	</div>
+</div>
 
-function launch(i) {
-	scroll = document.body.scrollTop; // store scroll position
-	setbg(images[i]); // display image
-	index = i; // store current image index
-	inGallery = true;
-}
-
-function prev() {
-	if(index == 0)
-		index = images.length;
-	index--;
-	setbg(images[index]);
-}
-
-function next() {
-	if(index == images.length-1)
-		index = -1;
-	index++;
-	setbg(images[index]);
-}
-
-document.onkeydown = function(e) {
-	if(inGallery) {
-		e = e || window.event;
-		switch(e.which || e.keyCode) {
-			case 37: // left
-				prev();
-			break;
-			case 39: // right
-				next();
-			break;
-			case 27: // esc
-				closeGallery();
-			break;
-			default: return; // exit this handler for other keys
-		}
-		e.preventDefault();
-	}
-}
-</script>
-
+<div id="mainContainer" class="no-gallery">
+	<div class="content" id="skrollr-body">
+		<div class="body" <?php echo $bodyData ?>>
+			<?php echo $body; ?>
+		</div>
+		<?php 
+			if(count($images) > 1) {
+				$html = "";
+				for($i = 0; $i < count($images); $i++)
+					$html .= $images[$i];
+				echo $html;
+		 	/* force div to have height */ ?>
+			<div class="clearer"></div>
+		<?php } ?>
+	</div>
+</div>
 <?php
 require_once('GLOBAL/foot.php');
 ?>
