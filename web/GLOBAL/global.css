@@ -48,6 +48,7 @@ a:hover {
 	display: inline-block;
 	float: right;
 	z-index: 100;
+	position: relative;
 }
 
 .menuItemContainer:empty {
@@ -173,6 +174,11 @@ a:hover {
 	margin-top: 20px;
 }
 
+/* for partner section */
+.logos > img {
+	margin: 20px;
+}
+
 /* mobile styles */
 @media screen and (max-device-width: 568px) {
 	body {
@@ -227,7 +233,7 @@ html, body {
 /* swipejs styles */
 .swipe {
 	  overflow: hidden;
-	  /* visibility: hidden; */
+	  visibility: hidden;
 	  position: relative;
 }
 .swipe-wrap {

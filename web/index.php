@@ -87,8 +87,8 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$images[$i] .= "style='".$icStyle."' ";
 		if (!$isMobile)
 		{
-			$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
-			$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
+			//$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
+			//$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
 		}
 		$images[$i] .= ">";
 		
@@ -103,13 +103,21 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 	$i++;
 }
 
+$imageData = "data-start='transform: translate3d(0px, 0%, 0px);' ";
+$imageData .= "data-100p-start='transform: translate3d(0px, -10%, 0px);' ";
+$imageData .= "data-end='transform: translate3d(0px, 0%, 0px);' ";
+
 $bodyData = "data-start='transform: translate3d(0px, 0%, 0px);' ";
-$bodyData .= "data-end='transform: translate3d(0px, 0%, 0px);' ";
-$bodyData = ""; // clear skrollr info for body
+$bodyData .= "data-end='transform: translate3d(0px, 20%, 0px);' ";
+
+// $bodyData = ""; // clear skrollr info for body
 
 ?>
-<?php if($isMobile) { ?>
-<div id="slider" class='swipe hidden gallery'>
+<?php
+// swipe functionality 
+if($isMobile) 
+{ 
+?><div id="slider" class='swipe hidden gallery'>
 	<div class='swipe-wrap'><?php
 		for($i = 0; $i < count($imageFiles); $i++)
 		{
@@ -127,10 +135,9 @@ $bodyData = ""; // clear skrollr info for body
 		</div><?php 
 		} 
 	?></div>
-</div>
-<?php } ?>
-
-<div id="nav-container" class='hidden gallery'>
+</div><?php 
+} 
+?><div id="nav-container" class='hidden gallery'>
 	<div id="prev" onclick='prev();'>
 		<img src="../MEDIA/la.png" style="width: 15px">
 	</div>
@@ -141,21 +148,39 @@ $bodyData = ""; // clear skrollr info for body
 		<img src="../MEDIA/ex.png" style="width: 15px">
 	</div>
 </div>
-
 <div id="mainContainer" class="no-gallery">
 	<div class="content" id="skrollr-body">
-		<div class="body" <?php echo $bodyData ?>>
+		<div class="body" <?php if(!$isMobile) echo $bodyData; ?>>
 			<?php echo $body; ?>
 		</div>
+		
 		<?php 
-			if(count($images) > 1) {
+			if(count($images) > 0) 
+			{
 				$html = "";
-				for($i = 0; $i < count($images); $i++)
-					$html .= $images[$i];
-				echo $html;
+				if($id != 22) // display logos differently
+				{
+				?><div class="images" <?php if(!$isMobile) echo $imageData; ?>><?
+					for($i = 0; $i < count($images); $i++)
+						$html .= $images[$i];
+				?></div><?
+				}	
+				else
+				{
+					?><div class="logos"><?
+					for($i = 0; $i < count($imageFiles); $i++)
+					{
+					?><!--div id="image<?php echo $i; ?>" class='logo-container'-->
+						<img src="<?php echo $imageFiles[$i]; ?>">
+					<!--/div--><?php
+					}
+					?></div><?
+				}
+				echo $html;	
 		 	/* force div to have height */ ?>
 			<div class="clearer"></div>
 		<?php } ?>
+		</div>
 	</div>
 </div>
 <?php

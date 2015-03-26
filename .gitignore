@@ -3,8 +3,11 @@ old/**
 web/old/**
 
 # database settings
-**systemDatabase.php
-**config.php
+systemDatabase.php
+config.php
 
 # server scripts
 scripts/**
+
+# backup files
+*~

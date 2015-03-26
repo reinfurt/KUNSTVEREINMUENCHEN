@@ -27,6 +27,12 @@ function close_gallery() {
 	// restore scroll position
 	window.scrollTo(0, scroll);
 	
+// 	if(typeof mySwipe !== 'undefined')
+// 	{
+// 		
+// 	}
+	delete mySwipe;
+	
 	inslider = false;
 }
 
