@@ -165,6 +165,35 @@ a:hover {
 	margin-right: 20px;
 }
 
+#fenster > img 
+{
+	position: absolute;
+	width: 50%;
+	top: 25%;
+	left: 25%;
+	z-index: 501;
+}
+
+#fenster
+{
+	  width: 50%;
+	  height: 50%;
+	  margin-left: auto;
+	  margin-right: auto;
+	  position: relative;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  z-index: 501;
+	  cursor: pointer;
+}
+
+#fenster:hover
+{
+	background-image: url(http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
 /* display header inline */
 #header > div {
 	display: inline-block;

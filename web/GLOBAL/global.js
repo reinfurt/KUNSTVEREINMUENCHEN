@@ -2,6 +2,21 @@ var scroll;
 var index;
 var inGallery = false;
 
+function logohover() {
+// 	l = document.getElementById("logo");
+// 	l.style.background = "red";
+
+// 	var img = document.createElement("img");
+// 	img.src = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
+// 	l = document.getElementById("fenster");
+// 	img.id = "fenster-img";
+// 	l.appendChild(img);
+}
+
+function logoreturn() {
+// 	document.getElementById("fenster-img").remove();
+}
+
 // desktop + mobile
 function open_gallery() {
 	// store scroll position

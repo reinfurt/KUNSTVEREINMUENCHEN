@@ -43,7 +43,14 @@ $isMobile = (bool)preg_match('#\b(ip(hone|od|ad)|android|opera m(ob|in)i|windows
 				'|mobile|up\.browser|[1-4][0-9]{2}x[1-4][0-9]{2})\b#i', $_SERVER['HTTP_USER_AGENT']);
 
 // document header
-$documentTitle = 'k.m';	
+$documentTitle = 'k.m';
+
+// window data
+$fenster["de"]["id"] = 401;
+$fenster["en"]["id"] = 402;
+$fenster["de"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
+$fenster["en"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
+
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"; 
 ?>
 
@@ -59,12 +66,30 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
+		
+		<style type="text/css">
+			background-image: url(<?php echo $fenster[$lang]["img"]; ?>);
+		</style>
 	</head>
-	<body>
-		<div id="logo" class="no-gallery"><a href="index.php">k.m</a></div>		
+	<body><?php 
+		if($id == 0 && !$isMobile) 
+		{
+		?>
+		<div 
+			id="fenster" 
+			onclick="location.href='/index.php?id=<?php echo $fenster[$lang]["id"]; ?>';"
+		></div><?
+		} 
+		?><div 
+			id="logo" 
+			class="no-gallery"
+		>
+			<a href="index.php">k.m</a>
+		</div>
+		</div>	
 		<?php
 			if($lang == "de")
-				$d = date("H.i");
+				$d = date("H:i");
 			else
 				$d = date("H:i");
 		?>
