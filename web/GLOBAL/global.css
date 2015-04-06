@@ -24,7 +24,6 @@
 }
 
 /* element styles */
-
 body {
 	font-size: 17px;
   	line-height: 20px;
@@ -43,18 +42,23 @@ a:hover {
 }
 
 /* class styles */
-.body {
-	max-width: 40%;
-	display: inline-block;
-	float: right;
-	z-index: 100;
-	position: relative;
-}
-
 .menuItemContainer:empty {
 	display: inline-block;
 	float: left;
 	padding-left: 10px;
+}
+
+.text {
+	position: relative;
+	display: inline-block;
+	float: right;
+	height: 100%;
+	max-width: 40%;
+	z-index: 100;
+}
+
+.images {
+ 	position: relative;
 }
 
 .imageContainer {
@@ -63,7 +67,6 @@ a:hover {
 
 .image-hover > img:hover {
 	opacity: 0.5;
-	/*background-color: #183029;*/
 	-webkit-filter: grayscale(100%); 
 	filter: grayscale(100%);
 }
@@ -77,28 +80,82 @@ a:hover {
 	padding-top: 2px;
 }
 
-/* utilities */
-.clearer {
-	clear: both;
-}
-
-.hidden {
-	display: none;
-}
-
 /* id styles */
+#fenster
+{
+	  width: 50%;
+	  height: 50%;
+	  margin-left: auto;
+	  margin-right: auto;
+	  position: relative;
+	  top: 50%;
+	  transform: translateY(-50%);
+	  -webkit-transform: translateY(-50%);
+	  z-index: 501;
+	  cursor: pointer;
+}
+
+#fenster > img 
+{
+	position: absolute;
+	width: 50%;
+	top: 25%;
+	left: 25%;
+	z-index: 501;
+}
+
+#fenster:hover {
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+#fixed-container {
+	position: fixed;
+	z-index: 500;
+}
 
 #header {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	margin: 20px;
-	z-index: 500;
+	padding: 20px;
 }
 
-#slider {
-	width: 100vw;
-	height: 100vh;
+#date {
+	float: left;
+}
+
+#menu {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+#logo {
+	position: fixed;
+	top: 50%;
+	width: 100%;
+	font-family: neuzeit-s-heavy;
+	font-size: 40pt;
+	text-align: center;
+}
+
+#lang {
+	position: fixed;
+	/*right: 0px;*/
+	left: 0px;
+  	bottom: 0px;
+  	margin: 20px;
+}
+
+#lang > .selected {
+	color: #fff;
+	background-color: #183029;
+}
+
+
+#nav-container {
+	height: 100%;
 }
 
 #ex {
@@ -124,88 +181,72 @@ a:hover {
 	right: 0px;
 	top: 50%;	
 }
-#mainContainer {
-	margin: 20px;
+
+#main-container {
+	padding: 20px;
 }
 
-#nav-container {
-	height: 100%;
+/* skrollr styles */
+
+html, body {
+	height:100%;
 }
 
-#date {
-	float: left;
+.skrollr-desktop body {
+	/*height:100% !important;*/
 }
 
-#lang {
-/* 	float: right; */
-	right: 0px;
-  	bottom: 0px;
-  	position: fixed;
-  	margin: 20px;
+.no-skrollr .parallax-image-wrapper {
+	display:none !important;
 }
 
-/* highlight selected language */
-#lang > .selected {
-	color: #fff;
-	background-color: #183029;
+#skrollr-body {
+	height:100%;
+	overflow:visible;
+	position:relative;
 }
 
-#logo {
-	position: fixed;
-	z-index: 500;
-	top: 50%;
-	width: 100%;
-	font-family: neuzeit-s-heavy;
-	font-size: 40pt;
-	text-align: center;
+/* swipejs styles */
+#slider {
+	width: 100vw;
+	height: 100vh;
 }
 
-#nav {
-	margin-left: 20px;
-	margin-right: 20px;
-}
-
-#fenster > img 
-{
-	position: absolute;
-	width: 50%;
-	top: 25%;
-	left: 25%;
-	z-index: 501;
-}
-
-#fenster
-{
-	  width: 50%;
-	  height: 50%;
-	  margin-left: auto;
-	  margin-right: auto;
+.swipe {
+	  overflow: hidden;
+	  visibility: hidden;
 	  position: relative;
-	  top: 50%;
-	  transform: translateY(-50%);
-	  z-index: 501;
-	  cursor: pointer;
+}
+.swipe-wrap {
+	  overflow: hidden;
+	  position: relative;
+}
+.swipe-wrap > div {
+	  float:left;
+	  width:100vw;
+	  position: relative;
+	  height: 100vh;
 }
 
-#fenster:hover
-{
-	background-image: url(http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-}
-/* display header inline */
-#header > div {
-	display: inline-block;
+/* utilities */
+.clearer {
+	clear: both;
 }
 
-.content {
-	margin-top: 20px;
+.hidden {
+	display: none;
 }
+
+/* hack-y things */
 
 /* for partner section */
 .logos > img {
 	margin: 20px;
+}
+
+/* display header inline */
+#header > div {
+	display: inline-block;
 }
 
 /* mobile styles */
@@ -215,13 +256,15 @@ a:hover {
 		line-height: 25px;
 	}
 	
-	.body {
+	.text {
 		max-width:100%;
 		margin-left: auto;
 		margin-right: auto;
 		float: inherit;
 	}
-	
+	#fixed-container {
+		position: relative; 
+	}
 	#header {
 		position: relative;
 	}
@@ -237,41 +280,4 @@ a:hover {
 	#nav-container {
 		height: initial;
 	}
-}
-
-/* skrollr styles */
-
-html, body {
-	height:100%;
-}
-
-.skrollr-desktop body {
-	height:100% !important;
-}
-
-.no-skrollr .parallax-image-wrapper {
-	display:none !important;
-}
-
-#skrollr-body {
-	height:100%;
-	overflow:visible;
-	position:relative;
-}
-
-/* swipejs styles */
-.swipe {
-	  overflow: hidden;
-	  visibility: hidden;
-	  position: relative;
-}
-.swipe-wrap {
-	  overflow: hidden;
-	  position: relative;
-}
-.swipe-wrap > div {
-	  float:left;
-	  width:100vw;
-	  position: relative;
-	  height: 100vh;
 }

@@ -46,7 +46,6 @@ $images = array();
 $i = 0;
 $images[] = "";
 $imageFiles[] ="";
-
 $swipes[] = "";
 
 // reset to row 0
@@ -85,10 +84,11 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$images[$i] .= "class='imageContainer' ";
 		$images[$i] .= "onclick='launch(".$i.");' ";
 		$images[$i] .= "style='".$icStyle."' ";
+		// individual image styles
 		if (!$isMobile)
 		{
-			//$images[$i] .= "data-start='transform: translate3d(0px, 0%, 0px);' ";
-			//$images[$i] .= "data-end='transform: translate3d(0px, -100%, 0px);'";
+			//$images[$i] .= "data-start='transform: translateY(0%);' ";
+			//$images[$i] .= "data-end='transform: translateY(".(100 - $randomWidth)."%);' ";
 		}
 		$images[$i] .= ">";
 		
@@ -103,17 +103,15 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 	$i++;
 }
 
-$imageData = "data-start='transform: translate3d(0px, 0%, 0px);' ";
-$imageData .= "data-100p-start='transform: translate3d(0px, -10%, 0px);' ";
-$imageData .= "data-end='transform: translate3d(0px, 0%, 0px);' ";
+$runParallax = TRUE;
+if(empty($images[0]))
+	$runParallax = FALSE;
 
-$bodyData = "data-start='transform: translate3d(0px, 0%, 0px);' ";
-$bodyData .= "data-end='transform: translate3d(0px, 20%, 0px);' ";
+// parallax
+$textData = "data-start='transform: translateY(0%);' ";
+$textData .= "data-end='transform: translateY(75%);' ";
 
-// $bodyData = ""; // clear skrollr info for body
 
-?>
-<?php
 // swipe functionality 
 if($isMobile) 
 { 
@@ -148,39 +146,37 @@ if($isMobile)
 		<img src="../MEDIA/ex.png" style="width: 15px">
 	</div>
 </div>
-<div id="mainContainer" class="no-gallery">
-	<div class="content" id="skrollr-body">
-		<div class="body" <?php if(!$isMobile) echo $bodyData; ?>>
-			<?php echo $body; ?>
-		</div>
-		
-		<?php 
+<div id="main-container" class="no-gallery" <? if($runParallax) { ?>id="skrollr-body"<? } ?>>
+	<div class="content">
+		<div class="text" <?php if(!$isMobile) echo $textData; ?>><?php 
+			echo $body; 
+		?></div><?php 
 			if(count($images) > 0) 
 			{
-				$html = "";
-				if($id != 22) // display logos differently
+				// display logos differently
+				if($id != 22)
 				{
 				?><div class="images" <?php if(!$isMobile) echo $imageData; ?>><?
+					$html = "";
 					for($i = 0; $i < count($images); $i++)
 						$html .= $images[$i];
+					echo $html;
+					// force div to have height
+					?><div class="clearer"></div><?
 				?></div><?
 				}	
 				else
 				{
+					// logos
 					?><div class="logos"><?
 					for($i = 0; $i < count($imageFiles); $i++)
 					{
-					?><!--div id="image<?php echo $i; ?>" class='logo-container'-->
-						<img src="<?php echo $imageFiles[$i]; ?>">
-					<!--/div--><?php
+					?><img src="<?php echo $imageFiles[$i]; ?>"><?php
 					}
 					?></div><?
 				}
-				echo $html;	
-		 	/* force div to have height */ ?>
-			<div class="clearer"></div>
-		<?php } ?>
-		</div>
+			} 
+		?></div>
 	</div>
 </div>
 <?php

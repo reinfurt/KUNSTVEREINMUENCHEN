@@ -51,6 +51,12 @@ $fenster["en"]["id"] = 402;
 $fenster["de"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 $fenster["en"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 
+// date format
+if($lang == "de")
+	$d = date("H:i");
+else
+	$d = date("H:i");
+
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"; 
 ?>
 
@@ -66,41 +72,34 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
-		
 		<style type="text/css">
-			background-image: url(<?php echo $fenster[$lang]["img"]; ?>);
+			#fenster:hover {
+				background-image: url(<?php echo $fenster[$lang]["img"]; ?>);
+			}
 		</style>
 	</head>
 	<body><?php 
 		if($id == 0 && !$isMobile) 
 		{
-		?>
-		<div 
+		?><div 
 			id="fenster" 
 			onclick="location.href='/index.php?id=<?php echo $fenster[$lang]["id"]; ?>';"
 		></div><?
 		} 
-		?><div 
-			id="logo" 
-			class="no-gallery"
-		>
-			<a href="index.php">k.m</a>
-		</div>
-		</div>	
-		<?php
-			if($lang == "de")
-				$d = date("H:i");
-			else
-				$d = date("H:i");
 		?>
-		<div id="header" class="no-gallery">
-			<div id="date"><a href="index.php"><?php echo $d;?></a></div>
-			<div id="nav">
+		<div id="fixed-container" class="no-gallery">
+			<div id="header">
+				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
+				<div id="menu">
 				<?php
 					if($showMenu)
 						displayNavigation($path, $limit, $selection, $linkPageName, $stub, $breadcrumbsMode, $multiColumn);
 				?>
-				<div class="clearer"></div>
+					<div class="clearer"></div>
+				</div>
+			</div>
+			<div id="logo">
+				<a href="index.php">k.m</a>
 			</div>
 			<div id="lang">
 				<span class="<?php if($lang=="de") echo "selected";?>">
@@ -109,5 +108,4 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 					<a href="<?php echo $pageName;?>.php?lang=en">en</a>
 				</span>
 			</div>
-			<div class="clearer"></div>
-		</div>
+		</div>	

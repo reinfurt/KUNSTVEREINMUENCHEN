@@ -8,4 +8,6 @@ known issues
   - about > k.m
   - program
   - publications
-+ calendar
++ calendar / events
++ handle broken links
++ parrallax
