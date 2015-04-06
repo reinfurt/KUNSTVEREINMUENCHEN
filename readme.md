@@ -3,11 +3,10 @@ Kunstverein Muenchen
 
 known issues
 ------------
-+ swipe on mobile doesn't work when opening gallery for second time (n.b. opening gallery does not require a page reload.)
 + images still need to be added to:
   - about > k.m
   - program
   - publications
 + calendar / events
 + handle broken links
-+ parrallax
++ parallax effect is quite variable, depending on number of images on a page / length of tex
