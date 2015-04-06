@@ -9,4 +9,4 @@ known issues
   - publications
 + calendar / events
 + handle broken links
-+ parallax effect is quite variable, depending on number of images on a page / length of tex
++ parallax effect is quite variable, depending on number of images on a page / length of text
