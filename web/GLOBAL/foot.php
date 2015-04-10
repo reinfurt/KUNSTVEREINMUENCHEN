@@ -14,17 +14,25 @@
 			{
 			?><script type="text/javascript" src="GLOBAL/skrollr.min.js"></script>
 			<script type="text/javascript">
-				document.body.onload = function(){
-					start()};
-				function start() {
-					skrollr.init({
-						smoothScrolling: true,
-						forceHeight: false,
-						skrollrBody: 'main-container',
-					});
-				}
-				skrollr.refresh();
+				window.onload = function(){startP()};
 			</script><?php 
+			}
+			else
+			{
+			?><script type = "text/javascript">
+				var header = document.getElementById("header");
+				hh = header.scrollHeight;
+				console.log(hh);
+				vh = Math.max(	document.documentElement.clientHeight, 
+								window.innerHeight || 0);
+				console.log(vh);
+				if(hh > vh)
+				{
+					header.style.position = "relative";
+					document.getElementById("fixed-container").style.position = "relative";
+				}				
+				window.onload = function(){startNP()};
+			</script><?php
 			}
 		}
 	?></body>

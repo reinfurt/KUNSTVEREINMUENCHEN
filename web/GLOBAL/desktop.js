@@ -51,3 +51,35 @@ document.onkeydown = function(e) {
 		e.preventDefault();
 	}
 }
+
+// start function for pages with parallax
+function startP() {
+	var body = document.body, html = document.documentElement;
+// 	var ph = Math.max(	body.scrollHeight, 
+// 						body.offsetHeight, 
+//                      html.clientHeight, 
+//                      html.scrollHeight; 
+//                      html.offsetHeight );
+	var text = document.getElementsByClassName("text")[0];
+	var vh = Math.max(	document.documentElement.clientHeight, 
+						window.innerHeight || 0);
+	var th = text.scrollHeight;
+	if(th > vh/2)
+		o = Math.abs(th-vh).toString();
+	else
+		o = (th).toString();
+	text.setAttribute("data-end", "transform: translateY(-"+o+"px);");
+	
+	skrollr.init({
+		smoothScrolling: true,
+		forceHeight: false,
+		skrollrBody: 'main-container',
+	});
+}
+
+// start function for no parallax
+function startNP() {
+	var text = document.getElementsByClassName("text")[0];
+	text.style.position = "relative";
+	text.style.float = "right";
+}

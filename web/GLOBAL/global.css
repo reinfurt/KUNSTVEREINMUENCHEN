@@ -24,11 +24,42 @@
 }
 
 /* element styles */
-body {
+body,
+input,
+input.submit {
 	font-size: 17px;
   	line-height: 20px;
   	font-family: neuzeit-s-book, Helvetica, sans-serif;
   	color: #183029;
+}
+
+/* stop bouncing at top of page */
+/*
+html, body {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+body > #main-container {
+	height: 100%;
+	overflow: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+ */
+
+input {
+	border-style: solid;
+	border-width:1px;
+	margin: 10px;
+}
+
+input.submit {
+	padding: 1px;
+	background-color: white;
+	border-style: solid;
+	border-width:1px;
+	border-color:black;
 }
 
 a {
@@ -49,12 +80,19 @@ a:hover {
 }
 
 .text {
-	position: relative;
+/* 	position: relative; */
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 20px 20px 20px 20px;
 	display: inline-block;
-	float: right;
-	height: 100%;
+
 	max-width: 40%;
 	z-index: 100;
+}
+
+.text:hover{
+  background-color: rgba(255, 255, 255, .7);  
 }
 
 .images {
@@ -148,6 +186,13 @@ a:hover {
   	margin: 20px;
 }
 
+#subscribe {
+	position: fixed;
+	right: 0px;
+	bottom: 0px;
+	padding: 20px;
+}
+
 #lang > .selected {
 	color: #fff;
 	background-color: #183029;
@@ -183,9 +228,12 @@ a:hover {
 }
 
 #main-container {
-	padding: 20px;
+	/*padding: 20px;*/
 }
 
+.content {
+	/*padding: 20px;*/
+}
 /* skrollr styles */
 
 html, body {
@@ -237,6 +285,38 @@ html, body {
 	display: none;
 }
 
+.blink {
+	/* color: #ff0000; */
+	animation: blink 5s infinite;
+	-webkit-animation: blink 5s infinite;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function: ease-in-out;
+}
+
+@keyframes blink {
+	0% { 
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes blink {
+	0% { 
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
 /* hack-y things */
 
 /* for partner section */
@@ -247,6 +327,11 @@ html, body {
 /* display header inline */
 #header > div {
 	display: inline-block;
+}
+
+/* force safari to display fonts normally (fixed elements) */
+body {
+	-webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* mobile styles */
@@ -264,6 +349,9 @@ html, body {
 	}
 	#fixed-container {
 		position: relative; 
+	}
+	#main-container {
+		padding-bottom: 60px;
 	}
 	#header {
 		position: relative;

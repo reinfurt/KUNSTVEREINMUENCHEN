@@ -103,14 +103,13 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 	$i++;
 }
 
-$runParallax = TRUE;
-if(empty($images[0]))
+$runParallax = !$isMobile;
+if(count($images) < 2)
 	$runParallax = FALSE;
 
 // parallax
-$textData = "data-start='transform: translateY(0%);' ";
-$textData .= "data-end='transform: translateY(75%);' ";
-
+$textData = "data-start='transform: translateY(0px);' ";
+// $textData .= "data-end='transform: translateY(100%);' ";
 
 // swipe functionality 
 if($isMobile) 
@@ -146,37 +145,39 @@ if($isMobile)
 		<img src="../MEDIA/ex.png" style="width: 15px">
 	</div>
 </div>
-<div id="main-container" class="no-gallery" <? if($runParallax) { ?>id="skrollr-body"<? } ?>>
+<div id="main-container" class="no-gallery">
 	<div class="content">
-		<div class="text" <?php if(!$isMobile) echo $textData; ?>><?php 
-			echo $body; 
-		?></div><?php 
-			if(count($images) > 0) 
-			{
-				// display logos differently
-				if($id != 22)
+		<div class="text-container">
+			<div class="text" <?php if(!$isMobile) echo $textData; ?>><?php 
+				echo $body; 
+			?></div><?php 
+				if(count($images) > 0) 
 				{
-				?><div class="images" <?php if(!$isMobile) echo $imageData; ?>><?
-					$html = "";
-					for($i = 0; $i < count($images); $i++)
-						$html .= $images[$i];
-					echo $html;
-					// force div to have height
-					?><div class="clearer"></div><?
-				?></div><?
-				}	
-				else
-				{
-					// logos
-					?><div class="logos"><?
-					for($i = 0; $i < count($imageFiles); $i++)
+					// display logos differently
+					if($id != 22)
 					{
-					?><img src="<?php echo $imageFiles[$i]; ?>"><?php
-					}
+					?><div class="images" <?php if(!$isMobile) echo $imageData; ?>><?
+						$html = "";
+						for($i = 0; $i < count($images); $i++)
+							$html .= $images[$i];
+						echo $html;
+						// force div to have height
+						?><div class="clearer"></div><?
 					?></div><?
-				}
-			} 
-		?></div>
+					}	
+					else
+					{
+						// logos
+						?><div class="logos"><?
+						for($i = 0; $i < count($imageFiles); $i++)
+						{
+						?><img src="<?php echo $imageFiles[$i]; ?>"><?php
+						}
+						?></div><?
+					}
+				} 
+			?></div>
+		</div>
 	</div>
 </div>
 <?php

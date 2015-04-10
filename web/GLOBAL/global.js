@@ -35,6 +35,7 @@ function close_gallery() {
 	h = document.getElementsByClassName("gallery");
 	for (i = 0; i < h.length; i++)
 		hide(h[i]);
+	
 	s = document.getElementsByClassName("no-gallery");
 	for (i = 0; i < s.length; i++)
 		show(s[i]);

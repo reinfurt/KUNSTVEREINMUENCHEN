@@ -51,6 +51,11 @@ $fenster["en"]["id"] = 402;
 $fenster["de"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 $fenster["en"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 
+$subscribe["de"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=14,26";
+$subscribe["en"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=8,25";
+$subscribe["de"]["text"] = "abonnieren";
+$subscribe["en"]["text"] = "subscribe";
+
 // date format
 if($lang == "de")
 	$d = date("H:i");
@@ -107,5 +112,13 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				<span class="<?php if($lang=="en") echo "selected";?>"> 
 					<a href="<?php echo $pageName;?>.php?lang=en">en</a>
 				</span>
-			</div>
-		</div>	
+			</div><? 
+			if((count($ids) == 1) && $id != 0)
+			{
+			?><div id="subscribe">
+				<span class="blink">
+				<a href="<?php echo $subscribe[$lang]['url']; ?>"><? echo $subscribe[$lang]["text"]; ?></a>
+				</span>
+			</div><?
+			}
+		?></div>	
