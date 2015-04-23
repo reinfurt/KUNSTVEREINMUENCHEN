@@ -5,7 +5,16 @@
 		if ($isMobile) 
 		{ 
 		?><script type='text/javascript' src='GLOBAL/swipe.js'></script>
-		<script type='text/javascript' src='GLOBAL/mobile.js'></script><?php 
+		<script type='text/javascript' src='GLOBAL/mobile.js'></script>
+		<script type='text/javascript'>
+			setTimeout(startBlink(), 10000);
+			function startBlink() {
+				return function(){
+				var logo = document.getElementById("logo");
+				logo.className = logo.className + " blink-slow";
+				}
+			}
+		</script><?php 
 		} 
 		else 
 		{ 
@@ -20,6 +29,7 @@
 			else
 			{
 			?><script type = "text/javascript">
+				// un-fix the menu if it's taller than the viewport height
 				var header = document.getElementById("header");
 				hh = header.scrollHeight;
 				console.log(hh);

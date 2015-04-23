@@ -47,6 +47,7 @@ $i = 0;
 $images[] = "";
 $imageFiles[] ="";
 $swipes[] = "";
+$captions[] = "";
 
 // reset to row 0
 mysql_data_seek($result, 0);
@@ -62,6 +63,7 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$mediaCaption = strip_tags($myrow["caption"]);
 		$mediaStyle = "width: 100%;";
 		$imageFiles[$i] = $mediaFile;
+		$captions[$i] = $mediaCaption;
 
 		// build random styles
 		$randomPadding = rand(0, 15);
@@ -104,12 +106,8 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 }
 
 $runParallax = !$isMobile;
-if(count($images) < 2)
-	$runParallax = FALSE;
-
-// parallax
-$textData = "data-start='transform: translateY(0px);' ";
-// $textData .= "data-end='transform: translateY(100%);' ";
+//if(count($images) < 2)
+$runParallax = FALSE;
 
 // swipe functionality 
 if($isMobile) 
@@ -150,7 +148,8 @@ if($isMobile)
 		<div class="text-container">
 			<div class="text" <?php if(!$isMobile) echo $textData; ?>><?php 
 				echo $body; 
-			?></div><?php 
+			?></div>
+		</div><?php 
 				if(count($images) > 0) 
 				{
 					// display logos differently
@@ -171,14 +170,13 @@ if($isMobile)
 						?><div class="logos"><?
 						for($i = 0; $i < count($imageFiles); $i++)
 						{
-						?><img src="<?php echo $imageFiles[$i]; ?>"><?php
+						?><div><? echo $captions[$i]; ?></div>
+						<img src="<?php echo $imageFiles[$i]; ?>"><?php
 						}
 						?></div><?
 					}
 				} 
-			?></div>
-		</div>
-	</div>
+	?></div>
 </div>
 <?php
 require_once('GLOBAL/foot.php');

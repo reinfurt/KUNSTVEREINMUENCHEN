@@ -16,8 +16,8 @@ $id = $ids[count($ids) - 1];
 // dev
 $dev = $_REQUEST['dev'];
 $dev = systemCookie("devCookie", $dev, 0);
-if(!$dev) 
-	die('Under construction . . .');
+// if(!$dev) 
+// 	die('Under construction . . .');
 
 // language
 $lang = $_REQUEST['lang'];
@@ -32,7 +32,7 @@ if($lang == "en")
 	$path = "2";
 $limit = 1;
 $selection = $idFull;
-$linkPageName = $pageName;
+$linkPageName = "index";
 $stub = FALSE;
 $breadcrumbsMode = FALSE;
 $multiColumn = 20;
@@ -51,6 +51,7 @@ $fenster["en"]["id"] = 402;
 $fenster["de"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 $fenster["en"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
 
+// subscribe data
 $subscribe["de"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=14,26";
 $subscribe["en"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=8,25";
 $subscribe["de"]["text"] = "abonnieren";
@@ -84,7 +85,8 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		</style>
 	</head>
 	<body><?php 
-		if($id == 0 && !$isMobile) 
+		// if($id == 0 && !$isMobile && $pageName == 'index') 
+		if(FALSE)
 		{
 		?><div 
 			id="fenster" 
@@ -102,11 +104,20 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				?>
 					<div class="clearer"></div>
 				</div>
-			</div>
-			<div id="logo">
+			</div><?
+			if($pageName == "index")
+			{
+			?><div id="logo">
 				<a href="index.php">k.m</a>
-			</div>
-			<div id="lang">
+			</div><?
+			}
+			else
+			{
+			?><div id="logo" class="blink-fade">
+				<a href="index.php">k.m</a>
+			</div><?
+			}
+			?><div id="lang">
 				<span class="<?php if($lang=="de") echo "selected";?>">
 					<a href="<?php echo $pageName;?>.php?lang=de">de</a></span> /
 				<span class="<?php if($lang=="en") echo "selected";?>"> 

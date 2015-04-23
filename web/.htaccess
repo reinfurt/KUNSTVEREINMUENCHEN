@@ -8,6 +8,7 @@ IndexIgnore */*
 
 # Turn on the RewriteEngine
 RewriteEngine On
+RewriteBase /
 
 #  Rules
 RewriteCond %{HTTP_HOST} ^kunstverein-muenchen\.de$ [NC]
@@ -16,15 +17,49 @@ RewriteRule ^(.*)$ http://www.kunstverein-muenchen.de/$1 [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# what-cant-be-played was originally created as what-can-be-played,
-# redirect requests to the new page
-RewriteRule ^de/what-can-be-played /de/what-cant-be-played [R=301,L]
-RewriteRule ^en/what-can-be-played /en/what-cant-be-played [R=301,L]
+# contact 
+RewriteRule ^de/kontakt/?$ index.php?id=14 [R]
+RewriteRule ^en/contact/?$ index.php?id=8 [R]
+RewriteRule ^de/newsletter/?$ index.php?id=14,26 [R]
+RewriteRule ^en/newsletter/?$ index.php?id=8,25 [R]
 
-RewriteRule ^de /index.php
-RewriteRule ^elementfiles /index.php
-RewriteRule ^en /index.php
-RewriteRule ^pressfiles /index.php
-RewriteRule ^pagefiles /index.php
-RewriteRule ^admin /index.php
-RewriteRule ^2008/ http://www.kunstverein-muenchen.de/ [R=301,L]
+# program
+RewriteRule ^de/programm/?$ index.php?id=11 [R]
+RewriteRule ^en/programme/?$ index.php?id=5 [R]
+RewriteRule ^de/archiv/?$ index.php?id=11,10 [R]
+RewriteRule ^en/archive/?$ index.php?id=5,4 [R]
+RewriteRule ^de/kalender/([0-9]+)/([0-9]+)/?$ index.php?id=11,39 [R]
+RewriteRule ^en/calendar/([0-9]+)/([0-9]+)/?$ index.php?id=5,31 [R]
+RewriteRule ^de/publikationen/?$ index.php?id=11,12 [R]
+RewriteRule ^en/publications/?$ index.php?id=5,6 [R]
+RewriteRule ^de/editionen/?$ index.php?id=11,30 [R]
+RewriteRule ^en/editions/?$ index.php?id=5,28 [R]
+
+# membership (see below)
+
+# about
+RewriteRule ^de/kunstverein-muenchen/?$ index.php?id=9,19 [R]
+RewriteRule ^en/kunstverein-muenchen/?$ index.php?id=3,15 [R]
+RewriteRule ^de/vorstand/?$ index.php?id=9,20 [R]
+RewriteRule ^en/board/?$ index.php?id=3,16 [R]
+RewriteRule ^de/team/?$ index.php?id=9,21 [R]
+RewriteRule ^en/team/?$ index.php?id=3,17 [R]
+RewriteRule ^de/partner/?$ index.php?id=9,22 [R]
+RewriteRule ^en/partners/?$ index.php?id=3,22 [R]
+RewriteRule ^de/impressum/?$ index.php?id=9,432 [R]
+RewriteRule ^en/imprint/?$ index.php?id=3,411 [R]
+
+# everything else ?
+RewriteRule ^de(.+)$ index.php?lang=de [R]
+RewriteRule ^en(.+)$ index.php?lang=en [R]
+
+# admin
+RewriteRule ^admin(.*)$ OPEN-RECORDS-GENERATOR [R]
+
+# membership-page specific redirects
+RewriteRule ^de/mitglied-werden/?$ member.php?id=29,781 [R]
+RewriteRule ^en/membership-application/?$ member.php?id=27,778 [R]
+RewriteCond %{QUERY_STRING} 29,781
+RewriteRule ^index.php$ member.php?id=29,781 [R]
+RewriteCond %{QUERY_STRING} 27,778
+RewriteRule ^index.php$ member.php?id=27,778 [R]

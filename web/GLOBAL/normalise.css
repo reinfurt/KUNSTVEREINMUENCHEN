@@ -76,6 +76,7 @@ html {
  * elements.
  */
 
+/* 
 html,
 button,
 input,
@@ -83,6 +84,7 @@ select,
 textarea {
     font-family: sans-serif;
 }
+ */
 
 /**
  * Address margins handled incorrectly in IE 6/7.
@@ -306,7 +308,7 @@ dd {
 menu,
 ol,
 ul {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 20px;
 }
 
 /**

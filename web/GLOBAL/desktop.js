@@ -68,18 +68,36 @@ function startP() {
 		o = Math.abs(th-vh).toString();
 	else
 		o = (th).toString();
+	
+	
+	text.setAttribute("data-start", "transform: translateY(0px);");
 	text.setAttribute("data-end", "transform: translateY(-"+o+"px);");
+	
+	text.style.position = "fixed";
+	text.style.top = "0px";
+	text.style.right = "0px";
 	
 	skrollr.init({
 		smoothScrolling: true,
 		forceHeight: false,
 		skrollrBody: 'main-container',
 	});
+	body.style.overflow = "inherit";
 }
 
 // start function for no parallax
 function startNP() {
 	var text = document.getElementsByClassName("text")[0];
-	text.style.position = "relative";
-	text.style.float = "right";
+	var body = document.body;
+	body.style.overflow = "inherit";
+	setTimeout(startBlink(), 10000);
+// 	text.style.position = "relative";
+// 	text.style.float = "right";
+}
+
+function startBlink() {
+	return function(){
+	var logo = document.getElementById("logo");
+	logo.className = logo.className + " blink-slow";
+	}
 }
