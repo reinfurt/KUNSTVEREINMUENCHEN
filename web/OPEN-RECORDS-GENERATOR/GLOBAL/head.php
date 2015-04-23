@@ -211,6 +211,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"; ?>
 
 		<meta name="MSSmartTagsPreventParsing" content="true" />
 		<meta http-equiv="imagetoolbar" content="no" />
+		<link rel="shortcut icon" href="../../MEDIA/km.png">
 
 		<link rel="stylesheet" type="text/css" media="all" href="<?php echo $dbAdmin; ?>GLOBAL/global.css" />
 		<!-- link rel="alternate" type="application/rss+xml" title="RSS" href="/rss" / -->
