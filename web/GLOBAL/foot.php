@@ -5,16 +5,7 @@
 		if ($isMobile) 
 		{ 
 		?><script type='text/javascript' src='GLOBAL/swipe.js'></script>
-		<script type='text/javascript' src='GLOBAL/mobile.js'></script>
-		<script type='text/javascript'>
-			setTimeout(startBlink(), 10000);
-			function startBlink() {
-				return function(){
-				var logo = document.getElementById("logo");
-				logo.className = logo.className + " blink-slow";
-				}
-			}
-		</script><?php 
+		<script type='text/javascript' src='GLOBAL/mobile.js'></script><?php 
 		} 
 		else 
 		{ 
@@ -36,14 +27,29 @@
 				vh = Math.max(	document.documentElement.clientHeight, 
 								window.innerHeight || 0);
 				console.log(vh);
-				if(hh > vh)
-				{
+				if(hh > vh) {
 					header.style.position = "relative";
 					document.getElementById("fixed-container").style.position = "relative";
 				}				
 				window.onload = function(){startNP()};
 			</script><?php
 			}
+		}
+		if($pageName == "member")
+		{
+		?><script type='text/javascript'>
+			logo = document.getElementById("logo");
+			logo.className = "blink-fade";
+		</script>
+		<!--script type='text/javascript'>
+			setTimeout(startBlink(), 10000);
+			function startBlink() {
+				return function(){
+				var logo = document.getElementById("logo");
+				logo.className = logo.className + " blink-slow";
+				}
+			}
+		</script--><?
 		}
 	?></body>
 </html>

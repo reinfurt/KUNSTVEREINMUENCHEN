@@ -345,11 +345,15 @@ html, body {
 }
 
 .blink-fade {
-	animation: blink 15s normal;
+	opacity: 0;
+	animation: blink-fade 15s 1 normal;
+	-webkit-animation: blink-fade 15s 1 normal;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-timing-function: ease-in-out;
 }
 .blink-slow {
-	animation: blink 15s infinite;
-	-webkit-animation: blink 15s infinite;
+	animation: blink 15s 1 normal;
+	-webkit-animation: blink 15s 1 normal;
 	transition-timing-function: ease-in-out;
 	-webkit-transition-timing-function: ease-in-out;
 }
@@ -383,6 +387,24 @@ html, body {
 	}
 	100% {
 		opacity: 1;
+	}
+}
+
+@keyframes blink-fade {
+	0% { 
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes blink-fade {
+	0% { 
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
 	}
 }
 

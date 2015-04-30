@@ -87,17 +87,6 @@ function startP() {
 
 // start function for no parallax
 function startNP() {
-	// var text = document.getElementsByClassName("text")[0];
 	var body = document.body;
 	body.style.overflow = "inherit";
-	setTimeout(startBlink(), 10000);
-// 	text.style.position = "relative";
-// 	text.style.float = "right";
-}
-
-function startBlink() {
-	return function(){
-	var logo = document.getElementById("logo");
-	logo.className = logo.className + " blink-slow";
-	}
 }
