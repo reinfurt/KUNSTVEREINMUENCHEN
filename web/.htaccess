@@ -49,6 +49,8 @@ RewriteRule ^en/partners/?$ index.php?id=3,22 [R]
 RewriteRule ^de/impressum/?$ index.php?id=9,432 [R]
 RewriteRule ^en/imprint/?$ index.php?id=3,411 [R]
 
+RewriteRule ^pressfiles/?$ press.php?id=848 [R]
+
 # everything else ?
 RewriteRule ^de(.+)$ index.php?lang=de [R]
 RewriteRule ^en(.+)$ index.php?lang=en [R]
@@ -63,3 +65,7 @@ RewriteCond %{QUERY_STRING} 29,781
 RewriteRule ^index.php$ member.php?id=29,781 [R]
 RewriteCond %{QUERY_STRING} 27,778
 RewriteRule ^index.php$ member.php?id=27,778 [R]
+
+# presse page redirect
+RewriteCond %{QUERY_STRING} 848
+RewriteRule ^index.php$ press.php [R]

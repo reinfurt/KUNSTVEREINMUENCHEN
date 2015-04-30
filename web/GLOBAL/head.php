@@ -94,9 +94,10 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		></div><?
 		} 
 		?>
-		<div id="fixed-container" class="no-gallery">
-			<div id="header">
-				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
+		<div id="fixed-container" class="no-gallery"><?
+			?><div id="header"><?
+				if($pageName != "press") { ?>
+				<div id="date"><a href="index.php"><?php echo $d;?></a></div><? } ?>
 				<div id="menu">
 				<?php
 					if($showMenu)
@@ -117,14 +118,17 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				<a href="index.php">k.m</a>
 			</div><?
 			}
+			if($pageName != "press")
+			{
 			?><div id="lang">
 				<span class="<?php if($lang=="de") echo "selected";?>">
 					<a href="<?php echo $pageName;?>.php?lang=de">de</a></span> /
 				<span class="<?php if($lang=="en") echo "selected";?>"> 
 					<a href="<?php echo $pageName;?>.php?lang=en">en</a>
 				</span>
-			</div><? 
-			if((count($ids) == 1) && $id != 0)
+			</div><?
+			} 
+			if((count($ids) == 1) && $id != 0 && $pageName != "press")
 			{
 			?><div id="subscribe">
 				<span class="blink">

@@ -93,7 +93,8 @@ a:hover {
 	background-color: #fff;
 }
 
-#fixed-container a {
+#fixed-container a, 
+.press-image a {
 	color: #183029;
 	background-color: transparent;
 }
@@ -149,9 +150,33 @@ a:hover {
 
 .caption {
 	font-size: 12px;
+	line-height: 14px;
 	padding-top: 2px;
 }
 
+.press-text {
+	padding: 20px;
+	padding-bottom: 0px;
+}
+
+.press-image a {
+	padding: 0px;
+}
+.press-image {
+	display: inline-block;
+	max-width: 200px;
+	max-height: 200px;
+	margin: 20px;
+}
+
+.press-div {
+	width: 200px;
+	height: 200px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+/* 	background-size: contain;  */
+}
 /* id styles */
 #fenster
 {
