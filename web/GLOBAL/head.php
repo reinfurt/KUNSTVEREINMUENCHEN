@@ -72,7 +72,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<title><?php echo $documentTitle; ?></title>
 		<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8"> 
 		<meta http-equiv="Title" content="<?php echo $documentTitle; ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 		
 		<link rel="shortcut icon" href="MEDIA/km.png">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
@@ -108,15 +108,11 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			</div><?
 			if($pageName == "index")
 			{
-			?><div id="logo">
-				<a href="index.php">k.m</a>
-			</div><?
+			?><div id="logo">k.m</div><?
 			}
 			else
 			{
-			?><div id="logo" class="blink-fade">
-				<a href="index.php">k.m</a>
-			</div><?
+			?><div id="logo" class="blink-fade">k.m</div><?
 			}
 			if($pageName != "press")
 			{

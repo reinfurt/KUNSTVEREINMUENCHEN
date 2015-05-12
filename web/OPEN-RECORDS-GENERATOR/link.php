@@ -88,12 +88,9 @@ if ($action != "link")
 			<br />&nbsp;
 			</td>
 		</tr>
-	</table>
+	</table><?
 
-
-
-
-	<br /><br /><br />
+	?><br /><br /><br />
 	<input name='action' type='hidden' value='link' />
 	<input name='cancel' type='button' value='Cancel' onClick="javascript:location.href='<?php
 	echo "browse.php". urlData();
@@ -122,7 +119,6 @@ else
 
 	$sql = "INSERT INTO wires (created, modified, fromid, toid) VALUES('". date("Y-m-d H:i:s") ."', '". date("Y-m-d H:i:s") ."', '$object', '$wirestoid')";
 	$result = MYSQL_QUERY($sql);
-
 
 	//echo "wirestoid = " . $wirestoid . " / wiresfromid = " . $object . "<br />";
 	echo "Object linked successfully.<br /><br />";
