@@ -105,15 +105,8 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				?>
 					<div class="clearer"></div>
 				</div>
-			</div><?
-			if($pageName == "index")
-			{
-			?><div id="logo">k.m</div><?
-			}
-			else
-			{
-			?><div id="logo" class="blink-fade">k.m</div><?
-			}
+			</div>
+			<div id="logo">k.m</div><?
 			if($pageName != "press")
 			{
 			?><div id="lang">

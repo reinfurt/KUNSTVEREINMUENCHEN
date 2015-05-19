@@ -35,7 +35,7 @@
 			</script><?php
 			}
 		}
-		if($pageName == "member")
+		if($pageName == "member" || $id == "412" || $id == "421")
 		{
 		?><script type='text/javascript'>
 			logo = document.getElementById("logo");

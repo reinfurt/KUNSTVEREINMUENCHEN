@@ -125,7 +125,7 @@ if($isMobile)
 				style='background-image: url(<?php echo $imageFiles[$i] ?>);
 						background-repeat: no-repeat;
 						background-position: center;
-						background-size: cover; '
+						background-size: contain; '
 			>
 		</div><?php 
 		} 

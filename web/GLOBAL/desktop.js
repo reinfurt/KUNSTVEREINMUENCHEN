@@ -29,7 +29,7 @@ function setbg(url) {
 	// set bg style
 	g = document.getElementById("nav-container");
 	g.style.background = bs;
-	g.style.backgroundSize = "cover";
+	g.style.backgroundSize = "contain";
 }
 
 // use arrow keys for navigation within the gallery
