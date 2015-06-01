@@ -15,6 +15,7 @@
 			?><script type="text/javascript" src="GLOBAL/skrollr.min.js"></script>
 			<script type="text/javascript">
 				window.onload = function(){startP()};
+				window.addEventListener("resize", refreshP);
 			</script><?php 
 			}
 			else
@@ -35,21 +36,12 @@
 			</script><?php
 			}
 		}
-		if($pageName == "member" || $id == "412" || $id == "421")
+		if($pageName == "member" || $id == "412" || $id == "421" || $isMobile || $pageName == "press")
 		{
 		?><script type='text/javascript'>
 			logo = document.getElementById("logo");
 			logo.className = "blink-fade";
-		</script>
-		<!--script type='text/javascript'>
-			setTimeout(startBlink(), 10000);
-			function startBlink() {
-				return function(){
-				var logo = document.getElementById("logo");
-				logo.className = logo.className + " blink-slow";
-				}
-			}
-		</script--><?
+		</script><?
 		}
 	?></body>
 </html>

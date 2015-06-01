@@ -32,6 +32,21 @@ body {
   	overflow: hidden;
 }
 
+a {
+	color: inherit;
+	text-decoration: none;
+	color: #fff;
+	background-color: #183029;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+a:hover {
+	color: #183029;
+	background-color: #fff;
+}
+
+
 /* stop bouncing at top of page */
 /*
 html, body {
@@ -79,19 +94,6 @@ input[type="text"] {
 	line-height: 17px;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-	color: #fff;
-	background-color: #183029;
-	padding-left: 1px;
-	padding-right: 1px;
-}
-
-a:hover {
-	color: #183029;
-	background-color: #fff;
-}
 
 #fixed-container a, 
 .press-image a {
@@ -165,7 +167,6 @@ a:hover {
 .press-image {
 	display: inline-block;
 	max-width: 200px;
-	max-height: 200px;
 	margin: 20px;
 }
 
@@ -177,36 +178,8 @@ a:hover {
 	background-size: cover;
 /* 	background-size: contain;  */
 }
+
 /* id styles */
-#fenster
-{
-	  width: 50%;
-	  height: 50%;
-	  margin-left: auto;
-	  margin-right: auto;
-	  position: relative;
-	  top: 50%;
-	  transform: translateY(-50%);
-	  -webkit-transform: translateY(-50%);
-	  z-index: 501;
-	  cursor: pointer;
-}
-
-#fenster > img 
-{
-	position: absolute;
-	width: 50%;
-	top: 25%;
-	left: 25%;
-	z-index: 501;
-}
-
-#fenster:hover {
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-}
-
 #fixed-container {
 	position: fixed;
 	z-index: 500;
@@ -260,6 +233,7 @@ a:hover {
 
 #nav-container {
 	height: 100%;
+	background-position: center center;
 }
 
 #ex {
@@ -286,6 +260,16 @@ a:hover {
 	top: 50%;	
 }
 
+#counter {
+	font-size: 12px;
+	line-height: 14px;
+	position: absolute;
+	padding: 10px;
+	top: 0px;
+	left: 0px;
+	/*background-color: rgba(255, 255, 255, .7);  */
+}
+
 #main-container {
 	/*padding: 20px;*/
 }
@@ -293,8 +277,8 @@ a:hover {
 .content {
 	/*padding: 20px;*/
 }
-/* skrollr styles */
 
+/* skrollr styles */
 html, body {
 	height:100%;
 }
@@ -432,13 +416,19 @@ body {
 }
 
 /* mobile styles */
-@media screen and (max-device-width: 568px) {
+@media screen and (max-device-width: 568px) 
+{
+	/* elements */
+	html, body {
+		height: 100%;
+	}
 	body {
 		overflow: inherit;
 		font-size: 20px;
 		line-height: 25px;
 	}
 	
+	/* classes */
 	.text {
 		max-width:100%;
 		margin-left: auto;
@@ -454,16 +444,21 @@ body {
 	.logos > img {
 		max-width: 100%;
 	}
+	
 	.images {
 		padding-left: 20px;
 		padding-right: 20px;
 	}
+	
+	/* ids */
 	#fixed-container {
 		position: relative; 
 	}
+	
 	#main-container {
 		padding-bottom: 60px;
 	}
+	
 	#header {
 		position: relative;
 	}
@@ -479,6 +474,7 @@ body {
 	#nav-container {
 		height: initial;
 	}
+	
 	#logo {
 		font-size: 60px;
 	}

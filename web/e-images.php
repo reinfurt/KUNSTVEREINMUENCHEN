@@ -120,32 +120,21 @@ foreach($b_arr as &$b)
 			}
 		</style>
 		<center>
-			<table border="0" cellspacing="0">
-				<tr>
+			<table border="0" cellspacing="0"><?
+				foreach($images as &$i)
+				{
+				?><tr>
 					<td colspan="2"><?
-						if($images[0][1])
-							$url = trim($images[0][1]);
-							if($url)
-							{
-							?><a href="<? echo $url; ?>"><?
-								echo $images[0][0];
-							?></a><?
-							}
-							else
-								echo $images[0][0];
+						echo $i[0];
 					?></td>
 				</tr><?
-					foreach($b_arr as &$b)
-					{
-					?><tr><?
-						foreach($b as &$c)
-						{
-						?><td><?
-							echo nl2br($c);
-						?></td><?
-						}
-					?></tr><?
-					}
+				if($i[1])
+				{
+				?><tr><?
+					echo nl2br($i[1]);
+				?></tr><?
+				}
+				}
 				?><tr>
 					<td>
 						<a href="http://ethreemail.net/subscribe?g=3a46e076">subscribe</a> / 

@@ -106,8 +106,8 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 }
 
 $runParallax = !$isMobile;
-//if(count($images) < 2)
-$runParallax = FALSE;
+if(count($images) < 3)
+	$runParallax = FALSE;
 
 // swipe functionality 
 if($isMobile) 
@@ -131,7 +131,7 @@ if($isMobile)
 		} 
 	?></div>
 </div><?php 
-} 
+}
 ?><div id="nav-container" class='hidden gallery'>
 	<div id="prev" onclick='prev();'>
 		<img src="../MEDIA/la.png" style="width: 15px">
@@ -142,6 +142,7 @@ if($isMobile)
 	<div id="ex" onclick='close_gallery();'>
 		<img src="../MEDIA/ex.png" style="width: 15px">
 	</div>
+	<div id="counter"></div>
 </div>
 <div id="main-container" class="no-gallery">
 	<div class="content">

@@ -1,23 +1,8 @@
+/* image gallery */
 var scroll;
 var index;
 var inGallery = false;
 
-function logohover() {
-// 	l = document.getElementById("logo");
-// 	l.style.background = "red";
-
-// 	var img = document.createElement("img");
-// 	img.src = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
-// 	l = document.getElementById("fenster");
-// 	img.id = "fenster-img";
-// 	l.appendChild(img);
-}
-
-function logoreturn() {
-// 	document.getElementById("fenster-img").remove();
-}
-
-// desktop + mobile
 function open_gallery() {
 	// store scroll position
 	scroll = document.body.scrollTop;
@@ -28,9 +13,12 @@ function open_gallery() {
 	s = document.getElementsByClassName("gallery");
 	for (i = 0; i < s.length; i++)
 		show(s[i]);
+	
+	/*document.ontouchmove = function(event){
+    	event.preventDefault();
+	}*/
 }
 
-// desktop + mobile
 function close_gallery() {
 	h = document.getElementsByClassName("gallery");
 	for (i = 0; i < h.length; i++)
@@ -43,12 +31,11 @@ function close_gallery() {
 	// restore scroll position
 	window.scrollTo(0, scroll);
 	
-	if(typeof mySwipe !== 'undefined')
-	{
+	if(typeof mySwipe !== 'undefined') {
 		mySwipe.kill();
 		console.log(mySwipe);
+		// document.ontouchmove = function(e){ return true; }
 	}
-	
 	inslider = false;
 }
 
@@ -60,4 +47,11 @@ function hide(e) {
 
 function show(e) {
 	e.className = e.className.replace(/(?:^|\s)hidden(?!\S)/g , '');
+}
+
+/* can i get rid of these functions? */
+function logohover() {
+}
+
+function logoreturn() {
 }

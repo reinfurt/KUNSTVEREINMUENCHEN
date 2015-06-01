@@ -45,12 +45,6 @@ $isMobile = (bool)preg_match('#\b(ip(hone|od|ad)|android|opera m(ob|in)i|windows
 // document header
 $documentTitle = 'k.m';
 
-// window data
-$fenster["de"]["id"] = 401;
-$fenster["en"]["id"] = 402;
-$fenster["de"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
-$fenster["en"]["img"] = "http://dev.kunstverein-muenchen.de/MEDIA/00673.jpg";
-
 // subscribe data
 $subscribe["de"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=14,26";
 $subscribe["en"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=8,25";
@@ -72,32 +66,18 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<title><?php echo $documentTitle; ?></title>
 		<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8"> 
 		<meta http-equiv="Title" content="<?php echo $documentTitle; ?>">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
 		
 		<link rel="shortcut icon" href="MEDIA/km.png">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
-		<style type="text/css">
-			#fenster:hover {
-				background-image: url(<?php echo $fenster[$lang]["img"]; ?>);
-			}
-		</style>
 	</head>
-	<body><?php 
-		// if($id == 0 && !$isMobile && $pageName == 'index') 
-		if(FALSE)
-		{
-		?><div 
-			id="fenster" 
-			onclick="location.href='/index.php?id=<?php echo $fenster[$lang]["id"]; ?>';"
-		></div><?
-		} 
-		?>
+	<body>
 		<div id="fixed-container" class="no-gallery"><?
-			?><div id="header"><?
-				if($pageName != "press") { ?>
-				<div id="date"><a href="index.php"><?php echo $d;?></a></div><? } ?>
+			?><div id="header">
+				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
 				<div id="menu">
 				<?php
 					if($showMenu)

@@ -1,6 +1,6 @@
 <?php
 $pageName = basename(__FILE__, ".php");
-$showMenu = FALSE;
+$showMenu = TRUE;
 require_once('GLOBAL/head.php');
 
 $rootid = $ids[0];
@@ -64,22 +64,6 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$imageFiles[$i] = $mediaFile;
 		$captions[$i] = $mediaCaption;
 
-// 		build random styles
-// 		$randomPadding = rand(0, 15);
-// 		$randomPadding *= 10;
-// 		if ($isMobile)
-// 			$randomWidth = rand(7, 9);
-// 		else
-// 			$randomWidth = rand(2, 5);
-// 		$randomWidth *= 10;
-// 		
-// 		$randomFloat = (rand(0, 1) == 0) ? 'left' : 'right';
-// 		$icStyle = 'width:'.$randomWidth.'%; ';
-// 		$icStyle .= 'float:'.$randomFloat.'; ';
-// 		if(!$isMobile)
-// 			$icStyle .= 'padding-top:'.$randomPadding.'px; ';
-// 		$icStyle .= 'margin: 40px;'; 
-
 		$images[$i] .= "<div ";
 		$images[$i] .= "id='image".$i."' ";
 		$images[$i] .= "class='press-image' ";
@@ -105,13 +89,8 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 	$i++;
 }
 
-?><div id="main-container" class="no-gallery">
-	<div class="content">
-		<div class="text-container">
-			<div class="press-text"><?php 
-				echo $name; 
-			?></div>
-		</div><?php 
+?><div id="main-container" class="no-gallery" style="width: 80%; margin-left: auto;">
+	<div class="content"><?php 
 				if(count($images) > 0) 
 				{
 					// display logos differently

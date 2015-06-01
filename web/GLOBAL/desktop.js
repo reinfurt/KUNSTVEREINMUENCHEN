@@ -1,9 +1,10 @@
+/* image gallery */
 function launch(i) {
 	open_gallery();
-	
 	setbg(images[i]); // display image
 	index = i; // store current image index
 	inGallery = true;
+	updateCounter();
 }
 
 function prev() {
@@ -11,6 +12,7 @@ function prev() {
 		index = images.length;
 	index--;
 	setbg(images[index]);
+	updateCounter();
 }
 
 function next() {
@@ -18,18 +20,31 @@ function next() {
 		index = -1;
 	index++;
 	setbg(images[index]);
+	updateCounter();
 }
 
+function updateCounter() {
+	var h = (index+1).toString();
+	h = h.concat("/");
+	h = h.concat(images.length);
+	document.getElementById("counter").innerHTML = h;
+}
+
+/* image gallery helpers */
 function setbg(url) {
 	// build bg style
-	bs = "url('/".concat(url);
-	bs = bs.concat("')");
-	bs = bs.concat(" no-repeat center center fixed");
-	
+	bi = "url('/".concat(url).concat("')");
+	// bs = bs.concat("')");
+	//bs = bs.concat(" no-repeat center center fixed");
 	// set bg style
 	g = document.getElementById("nav-container");
-	g.style.background = bs;
+	// g.style.background = bs;
+	g.style.backgroundImage = bi;
+	g.style.backgroundRepeat = "no-repeat";
+	//g.style.backgroundAttachment = "fixed";
+	g.style.backgroundPostion = "center center";
 	g.style.backgroundSize = "contain";
+	// g.style.backgroundSize = "cover";
 }
 
 // use arrow keys for navigation within the gallery
@@ -52,37 +67,40 @@ document.onkeydown = function(e) {
 	}
 }
 
-// start function for pages with parallax
-function startP() {
-	var body = document.body, html = document.documentElement;
-// 	var ph = Math.max(	body.scrollHeight, 
-// 						body.offsetHeight, 
-//                      html.clientHeight, 
-//                      html.scrollHeight; 
-//                      html.offsetHeight );
+/* parallax */
+function parallaxSetup() {
+	var html = document.documentElement;
 	var text = document.getElementsByClassName("text")[0];
-	var vh = Math.max(	document.documentElement.clientHeight, 
-						window.innerHeight || 0);
-	var th = text.scrollHeight;
-	if(th > vh/2)
+	var vh = html.offsetHeight; // viewport height
+	var th = text.scrollHeight; // text height
+	if(th > vh)
 		o = Math.abs(th-vh).toString();
 	else
 		o = (th).toString();
 	
-	
 	text.setAttribute("data-start", "transform: translateY(0px);");
 	text.setAttribute("data-end", "transform: translateY(-"+o+"px);");
-	
 	text.style.position = "fixed";
 	text.style.top = "0px";
 	text.style.right = "0px";
-	
-	skrollr.init({
+}
+
+// start function for pages with parallax
+function startP() {
+	parallaxSetup();
+	s = skrollr.init({
 		smoothScrolling: true,
 		forceHeight: false,
 		skrollrBody: 'main-container',
 	});
-	body.style.overflow = "inherit";
+	document.body.style.overflow = "inherit"; // unlock scrolling
+}
+
+function refreshP() {
+	parallaxSetup();
+	if(!inGallery) {
+		s.refresh();
+	}
 }
 
 // start function for no parallax
