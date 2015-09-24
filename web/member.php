@@ -161,7 +161,7 @@ else
 		?><div>
 			<input type="radio" id="type_<? echo $k; ?>" name="type" value="<? echo $k; ?>">
 			<label for="type_<? echo $p; ?>"><? echo $l; ?></label>
-			<span id="price<? echo $k; ?>"><? if($i > 2) { echo "(from "; }?>€ <? echo $p; if($i > 2) { echo ")"; }?></span>
+			<span id="price<? echo $k; ?>">(from € <? echo $p; ?>)</span>
 		</div><? 
 		}
 	?></div>
@@ -207,9 +207,16 @@ else
 			}
 		?></table>
 	</div>
-	<div>
-		<p><input type="radio" name="payment" value="deposit"> Direct debit</p>
-		<table><?
+	<div><?
+		if($lang == "de")
+		{
+		?><p><input type="radio" name="payment" value="deposit"> Bankeinzug</p><?
+		}
+		else
+		{
+		?><p><input type="radio" name="payment" value="deposit"> Direct debit</p><?
+		}
+		?><table><?
 			$keys = array_keys($bank);
 			for($i = 0; $i < count($keys); $i++)
 			{
@@ -225,9 +232,16 @@ else
 			}
 		?></table>
 	</div>
-	<div>
-		<p><input type="radio" name="payment" value="wire"> Bank transfer</p>
-		<div>
+	<div><?
+		if($lange == "de")
+		{
+		?><p><input type="radio" name="payment" value="wire"> Überweisung</p><?
+		}
+		else
+		{
+		?><p><input type="radio" name="payment" value="wire"> Bank transfer</p><?
+		}
+		?><div>
 			<p><? 
 			if($lang == "de")
 			{

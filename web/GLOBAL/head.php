@@ -19,6 +19,8 @@ $dev = systemCookie("devCookie", $dev, 0);
 // if(!$dev) 
 // 	die('Under construction . . .');
 
+$ds = true;
+
 // language
 $lang = $_REQUEST['lang'];
 $lang = systemCookie("langCookie", $lang, time()+60*60*24*30*12);
@@ -73,9 +75,32 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
+		<? if($ds) {?><script type="text/javascript" src = "GLOBAL/ds.js"></script><?} ?>
 	</head>
-	<body>
-		<div id="fixed-container" class="no-gallery"><?
+	<body><?
+		// dexter sinister asterisk
+		if($ds)
+		{
+		?>
+		<div class="no-gallery"><?
+			if(!$isMobile)
+			{
+			?><a id="controls" href="javascript:radioOnOff();">
+				<img src="MEDIA/blank.gif" width="480" height="360">
+			</a>
+			<video id="radio" width="480" height="360" poster="MEDIA/blank.gif" autoplay=1 loop=1>
+				<source src="MEDIA/MP4/README-web.mp4" type="video/mp4">
+			</video><?
+			}
+			else
+			{
+			?><div id="radio">
+				<img src="MEDIA/asterisk.gif">
+			</div><?
+			}
+		?></div><?
+		}
+		?><div id="fixed-container" class="no-gallery"><?
 			?><div id="header">
 				<div id="date"><a href="index.php"><?php echo $d;?></a></div>
 				<div id="menu">
@@ -85,8 +110,11 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				?>
 					<div class="clearer"></div>
 				</div>
-			</div>
-			<div id="logo">k.m</div><?
+			</div><?
+			if(!$ds)
+			{
+			?><div id="logo">k.m</div><?
+			}
 			if($pageName != "press")
 			{
 			?><div id="lang">

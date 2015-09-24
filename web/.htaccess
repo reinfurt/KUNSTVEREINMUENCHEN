@@ -69,3 +69,7 @@ RewriteRule ^index.php$ member.php?id=27,778 [R]
 # presse page redirect
 RewriteCond %{QUERY_STRING} 848
 RewriteRule ^index.php$ press.php [R]
+
+# ds page redirect
+RewriteCond %{QUERY_STRING} 5,4,55,1328
+RewriteRule ^index.php$ index.php?id=5,4,55,1370 [R]

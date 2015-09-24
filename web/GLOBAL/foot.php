@@ -43,5 +43,13 @@
 			logo.className = "blink-fade";
 		</script><?
 		}
+		if($dev)
+		{
+		?>
+		<script type="text/javascript">
+			window.onload = radioInit();
+		</script>
+		<?
+		}
 	?></body>
 </html>

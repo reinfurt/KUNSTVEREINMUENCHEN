@@ -94,7 +94,11 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		}
 		$images[$i] .= ">";
 		
-		$images[$i] .= "<div class='image-hover'>";
+		// dexter sinister exception
+		if($id != 1370 && $id !=1329)
+			$images[$i] .= "<div class='image-hover'>";
+		else
+			$images[$i] .= "<div>";
 		$images[$i] .= displayMedia($mediaFile, $mediaCaption, $mediaStyle);
 		$images[$i] .= "</div>";
 		$images[$i] .= "<div class = 'caption'>";
@@ -125,7 +129,7 @@ if($isMobile)
 				style='background-image: url(<?php echo $imageFiles[$i] ?>);
 						background-repeat: no-repeat;
 						background-position: center;
-						background-size: contain; '
+						background-size: cover; '
 			>
 		</div><?php 
 		} 

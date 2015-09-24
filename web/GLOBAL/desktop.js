@@ -43,8 +43,8 @@ function setbg(url) {
 	g.style.backgroundRepeat = "no-repeat";
 	//g.style.backgroundAttachment = "fixed";
 	g.style.backgroundPostion = "center center";
-	g.style.backgroundSize = "contain";
-	// g.style.backgroundSize = "cover";
+	// g.style.backgroundSize = "contain";
+	g.style.backgroundSize = "cover";
 }
 
 // use arrow keys for navigation within the gallery
