@@ -35,6 +35,11 @@
 				window.onload = function(){startNP()};
 			</script><?php
 			}
+			if($ds) 
+			{
+			?><script type="text/javascript" src = "GLOBAL/ds.js"></script>
+			<script type="text/javascript">window.onload = radioInit();</script><? 
+			}
 		}
 		if($pageName == "member" || $id == "412" || $id == "421" || $isMobile || $pageName == "press")
 		{
@@ -43,12 +48,11 @@
 			logo.className = "blink-fade";
 		</script><?
 		}
+		
 		if($dev)
 		{
 		?>
-		<script type="text/javascript">
-			window.onload = radioInit();
-		</script>
+		
 		<?
 		}
 	?></body>

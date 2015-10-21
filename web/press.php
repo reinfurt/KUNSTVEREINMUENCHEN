@@ -78,7 +78,14 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$images[$i] .= ">";
 		
 		$images[$i] .= "<a href='".$mediaFile."' target='_blank'>";
-		$images[$i] .= "<div class='press-div' style='background-image: url(\"../".$mediaFile."\");'>";
+		
+		// make exceptions for pdfs and tifs
+		if($myrow['type'] == "pdf")
+			$images[$i] .= "<div class='press-div' style='background-image: url(\"../GLOBAL/pdf.png\");'>";
+		elseif($myrow['type'] == "tif" || $myrow['type'] == "tiff")
+			$images[$i] .= "<div class='press-div' style='background-image: url(\"../GLOBAL/tif.png\");'>";
+		else
+			$images[$i] .= "<div class='press-div' style='background-image: url(\"../".$mediaFile."\");'>";
 		// $images[$i] .= displayMedia($mediaFile, $mediaCaption, $mediaStyle);
 		$images[$i] .= "</div></a>";
 		$images[$i] .= "<div class = 'caption'>";

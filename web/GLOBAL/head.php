@@ -48,8 +48,8 @@ $isMobile = (bool)preg_match('#\b(ip(hone|od|ad)|android|opera m(ob|in)i|windows
 $documentTitle = 'k.m';
 
 // subscribe data
-$subscribe["de"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=14,26";
-$subscribe["en"]["url"] = "http://dev.kunstverein-muenchen.de/index.php?id=8,25";
+$subscribe["de"]["url"] = "http://www.kunstverein-muenchen.de/index.php?id=14,26";
+$subscribe["en"]["url"] = "http://www.kunstverein-muenchen.de/index.php?id=8,25";
 $subscribe["de"]["text"] = "abonnieren";
 $subscribe["en"]["text"] = "subscribe";
 
@@ -75,7 +75,6 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
-		<? if($ds) {?><script type="text/javascript" src = "GLOBAL/ds.js"></script><?} ?>
 	</head>
 	<body><?
 		// dexter sinister asterisk

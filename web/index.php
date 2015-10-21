@@ -3,6 +3,9 @@ $pageName = basename(__FILE__, ".php");
 $showMenu = TRUE;
 require_once('GLOBAL/head.php');
 
+require_once('GLOBAL/php-md-lib/Michelf/Markdown.inc.php');
+use \Michelf\Markdown;
+
 $rootid = $ids[0];
 // SQL object plus media plus rootname
 $sql = "SELECT 
@@ -39,6 +42,11 @@ $myrow = MYSQL_FETCH_ARRAY($result);
 $rootname = $myrow['rootname'];
 $name = nl2br($myrow['name1']);
 $body = nl2br($myrow['body']);
+
+// convert to markdown on test case for the time being
+if($id == 1375)
+	$body = Markdown::defaultTransform($body);
+
 $notes = nl2br($myrow['notes']);
 $begin = $myrow['begin'];
 $end = $myrow['end'];
@@ -109,9 +117,10 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 	$i++;
 }
 
-$runParallax = !$isMobile;
-if(count($images) < 3)
-	$runParallax = FALSE;
+// $runParallax = !$isMobile;
+// if(count($images) < 3)
+// 	$runParallax = FALSE;
+$runParallax = FALSE;
 
 // swipe functionality 
 if($isMobile) 
