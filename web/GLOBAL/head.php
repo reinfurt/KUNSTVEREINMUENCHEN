@@ -84,9 +84,23 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<div class="no-gallery"><?
 			if(!$isMobile)
 			{
-			?><a id="controls" href="javascript:radioOnOff();">
-				<img src="MEDIA/blank.gif" width="480" height="360">
-			</a>
+				if(!($id == 1370 || $id == 1329))
+				{
+					if($lang == "de")
+						$dsurl = "http://www.kunstverein-muenchen.de/index.php?id=11,10,125,1329";
+					else
+						$dsurl = "http://www.kunstverein-muenchen.de/index.php?id=5,4,55,1370";
+					?><a id="controls" href="<? echo $dsurl; ?>">
+						<img src="MEDIA/blank.gif" width="480" height="360">
+					</a><?
+				}
+				else
+				{
+					?><a id="controls" href="javascript:radioOnOff();">
+						<img src="MEDIA/blank.gif" width="480" height="360">
+					</a><?
+				}
+			?>
 			<video id="radio" width="480" height="360" poster="MEDIA/blank.gif" autoplay=1 loop=1>
 				<source src="MEDIA/MP4/README-web.mp4" type="video/mp4">
 			</video><?

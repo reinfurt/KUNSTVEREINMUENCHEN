@@ -43,8 +43,8 @@ $rootname = $myrow['rootname'];
 $name = nl2br($myrow['name1']);
 $body = nl2br($myrow['body']);
 
-// convert to markdown on test case for the time being
-if($id == 1375)
+// convert to markdown (except on ds usb pages)
+if($id != 1370 && $id != 1329)
 	$body = Markdown::defaultTransform($body);
 
 $notes = nl2br($myrow['notes']);
