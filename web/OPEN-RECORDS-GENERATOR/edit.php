@@ -1,4 +1,4 @@
-<?php require_once("GLOBAL/head.php"); 
+<?php require_once("GLOBAL/head.php");
 echo "\n\n\n\n<br /><br />\n\n";
 
 
@@ -92,15 +92,15 @@ if ($action != "update") {
 
 
 		//  Upload New Images
-
-		for ($j = 0; $j < 5; $j++) {
+		// $uploadsMax = 5;
+		for ($j = 0; $j < $uploadsMax; $j++) {
 
 			echo "\n\n<tr><td>Image ". STR_PAD($i++, 2, "0", STR_PAD_LEFT) ."&nbsp; </td>";
 			echo "\n<td><input type='file' name='upload". $j ."' /><br />";
 			echo "&nbsp;"; //echo "\n<textarea name='mediaCaption[". ($j + $i)  ."]' cols='40' rows='3'>". $myrow["caption"] ."</textarea><br />&nbsp;";
 			echo "\n</td></tr>";
 		}
-		echo "\n<input type='hidden' name='uploadsMax' value='". $j ."' />";
+		echo "\n<input type='hidden' name='uploadsMax' value='". $uploadsMax ."' />";
 		echo "\n</table>";
 		?>
 

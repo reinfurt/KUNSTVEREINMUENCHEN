@@ -23,6 +23,9 @@ RewriteRule ^en/contact/?$ index.php?id=8 [R]
 RewriteRule ^de/newsletter/?$ index.php?id=14,26 [R]
 RewriteRule ^en/newsletter/?$ index.php?id=8,25 [R]
 
+# dexter-sinister
+RewriteRule ^dexter-sinister/?$ index.php?id=5,4,55,1370 [R]
+
 # program
 RewriteRule ^de/programm/?$ index.php?id=11 [R]
 RewriteRule ^en/programme/?$ index.php?id=5 [R]
@@ -73,3 +76,5 @@ RewriteRule ^index.php$ press.php [R]
 # ds page redirect
 RewriteCond %{QUERY_STRING} 5,4,55,1328
 RewriteRule ^index.php$ index.php?id=5,4,55,1370 [R]
+
+

@@ -54,7 +54,7 @@ function get_name($n)
 	return $myrow['name1'];
 }
 
-if ($action != "link") 
+if ($action != "copy") 
 {
 ?>
 <!--  LINK TO EXISTING OBJECT  -->
@@ -65,7 +65,7 @@ if ($action != "link")
 	<table cellpadding="0" cellspacing="0" border="0">
 	<form 
 		enctype="multipart/form-data" 
-		action="<?php echo $dbAdmin ."link.php". urlData(); ?>" 
+		action="<?php echo $dbAdmin ."copy.php". urlData(); ?>" 
 		method="post" 
 		style="padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px;"
 	>
@@ -90,11 +90,11 @@ if ($action != "link")
 	</table><?
 
 	?><br /><br /><br />
-	<input name='action' type='hidden' value='link' />
+	<input name='action' type='hidden' value='copy' />
 	<input name='cancel' type='button' value='Cancel' onClick="javascript:location.href='<?php
 	echo "browse.php". urlData();
 	?>';" /> 
-	<input name='submit' type='submit' value='Link to Object' />
+	<input name='submit' type='submit' value='Copy Object' />
 	</form><br />&nbsp;
 	<?php
 
@@ -130,7 +130,7 @@ else
 	{
 		$marr = array();
 		$m = "".STR_PAD($myrow['id'], 5, "0", STR_PAD_LEFT);
-		$mfile = $dbMedia.$m.".".$myrow['type'];
+		$mfile = $dbMediaAbs.$m.".".$myrow['type'];
 		$marr['f'] = $mfile;
 		$marr['id'] = $myrow['id'];
 		$marrarr[] = $marr;
@@ -143,14 +143,14 @@ else
 		$result = MYSQL_QUERY($sql);
 		$myrow = mysql_fetch_array($result);
 		
-		$targetType = explode(".", $mfile);
+		$targetType = end(explode(".", $marr['f']));
 		$targetFile = str_pad(($myrow["id"]+1), 5, "0", STR_PAD_LEFT) .".". $targetType;
-		$target = $dbMedia.$targetFile;
+		$target = $dbMediaAbs.$targetFile;
 		
-		copy($mfile, $target);
+		copy($marr['f'], $target);
 		
-		$sql = "INSERT INTO media (type, caption, object, created, modified)
-				SELECT type, caption, '$insertId', created, modified
+		$sql = "INSERT INTO media (type, caption, object, created, modified, rank)
+				SELECT type, caption, '$insertId', created, modified, rank
 				FROM media
 				WHERE id = '".$marr['id']."'";
 		$result = MYSQL_QUERY($sql);
@@ -160,11 +160,10 @@ else
 	/////////////
 
 	$sql = "INSERT INTO wires (created, modified, fromid, toid) VALUES('". date("Y-m-d H:i:s") ."', '". date("Y-m-d H:i:s") ."', '$object', '$insertId')";
-	echo $sql;
 	$result = MYSQL_QUERY($sql);
 
 	//echo "wirestoid = " . $wirestoid . " / wiresfromid = " . $object . "<br />";
-	echo "Object linked successfully.<br /><br />";
+	echo "Object copied successfully.<br /><br />";
 	echo "<a href='". $dbAdmin ."browse.php". urlData() ."'>CONTINUE...</a>";
 }
 

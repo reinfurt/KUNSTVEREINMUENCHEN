@@ -38,7 +38,7 @@ while ($myrow = MYSQL_FETCH_ARRAY($result)) {
 	echo $myrow["objectsId"] ."'>";
 	echo strip_tags($name) ."</a><br />";
 }
-echo "\n<br /><br />\n<a href='add.php". urlData() ."'>ADD OBJECT...</a>&nbsp;<a href='link.php". urlData() ."'>LINK ...</a><br />";
+echo "\n<br /><br />\n<a href='add.php". urlData() ."'>ADD OBJECT...</a>&nbsp;<a href='link.php". urlData() ."'>LINK...</a>&nbsp;<a href='copy.php". urlData() ."'>COPY...</a><br />";
 
 
 

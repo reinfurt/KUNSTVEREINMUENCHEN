@@ -3,7 +3,10 @@ date_default_timezone_set('Europe/Berlin');
 require_once('_Library/systemDatabase.php');
 require_once("_Library/systemCookie.php");
 require_once("_Library/displayNavigation.php"); 
-require_once("_Library/displayMedia.php"); 
+require_once("_Library/displayMedia.php");
+
+// stores the latest @k_dot_m tweet in the variable $tweet_text
+require_once("tweets.php");
 
 // parse $id
 $id = $_GET['id'];
@@ -19,7 +22,7 @@ $dev = systemCookie("devCookie", $dev, 0);
 // if(!$dev) 
 // 	die('Under construction . . .');
 
-$ds = true;
+$ds = !$dev;
 
 // language
 $lang = $_REQUEST['lang'];
@@ -126,7 +129,8 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			</div><?
 			if(!$ds)
 			{
-			?><div id="logo">k.m</div><?
+			?><!--div id="logo">k.m</div-->
+			<div id="logo"><? echo $tweet_text; ?></div><?
 			}
 			if($pageName != "press")
 			{
