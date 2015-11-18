@@ -48,12 +48,9 @@
 			logo.className = "blink-fade";
 		</script><?
 		}
-		
 		if($dev)
 		{
-		?>
-		
-		<?
+		?><?
 		}
 	?></body>
 </html>

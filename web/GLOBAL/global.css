@@ -190,6 +190,19 @@ input[type="text"] {
 	/* background-size: contain; */
 }
 
+.marquee.scroll span {
+	/*-webkit-marquee: auto medium infinite scroll normal;*/
+	display: inline-block;
+	-webkit-marquee-direction: auto;
+	-webkit-marquee-style: scroll;
+	-webkit-marquee-speed: fast;
+	-webkit-marquee-increment: small;
+	-webkit-marquee-repetition: 6;
+	overflow-x: -webkit-marquee;
+
+}
+
+
 /* id styles */
 #fixed-container {
 	position: fixed;
@@ -215,12 +228,18 @@ input[type="text"] {
 #logo {
 	position: fixed;
 	top: 50%;
+	transform: translateY(-50%);
 	width: 100%;
 	font-family: neuzeit-s-heavy;
 	font-size: 80pt;
+	line-height: 90pt;
 	text-align: center;
 }
 
+marquee#logo {
+	white-space: nowrap;
+	overflow: hidden;
+}
 #radio, #controls {
     position: fixed;
     z-index: 0;
@@ -370,11 +389,23 @@ html, body {
 }
 
 .blink-fade {
+/* 
 	opacity: 0;
 	animation: blink-fade 15s 1 normal;
 	-webkit-animation: blink-fade 15s 1 normal;
 	transition-timing-function: ease-in-out;
 	-webkit-transition-timing-function: ease-in-out;
+ */
+}
+
+.blink-fade span {
+	display: inline-block;
+	-webkit-marquee-direction: auto;
+	-webkit-marquee-style: scroll;
+	-webkit-marquee-speed: fast;
+	-webkit-marquee-increment: small;
+	-webkit-marquee-repetition: 6;
+	overflow-x: -webkit-marquee;
 }
 .blink-slow {
 	animation: blink 15s 1 normal;
@@ -518,5 +549,6 @@ body {
 	
 	#logo {
 		font-size: 60px;
+		line-height: 65px;
 	}
 }

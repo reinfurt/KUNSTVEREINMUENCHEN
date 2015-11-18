@@ -78,6 +78,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
+		<!--script type="text/javascript" src="GLOBAL/twitter.js"></script-->
 	</head>
 	<body><?
 		// dexter sinister asterisk
@@ -130,7 +131,8 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			if(!$ds)
 			{
 			?><!--div id="logo">k.m</div-->
-			<div id="logo"><? echo $tweet_text; ?></div><?
+			<marquee id="logo" class="marquee scroll"><span><? echo $tweet_text; ?></span></marquee>
+			<!--div id="source" style="display: none"><? echo $tweet_text; ?></div--><?
 			}
 			if($pageName != "press")
 			{
