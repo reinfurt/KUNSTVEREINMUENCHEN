@@ -22,7 +22,12 @@ $dev = systemCookie("devCookie", $dev, 0);
 // if(!$dev) 
 // 	die('Under construction . . .');
 
-$ds = !$dev;
+// * on DS page only
+if ($id == "1370") {
+	$ds = TRUE;
+} else {
+	$ds = FALSE;
+}
 
 // language
 $lang = $_REQUEST['lang'];
@@ -78,7 +83,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
 		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
 		<script type="text/javascript" src="GLOBAL/global.js"></script>
-		<!--script type="text/javascript" src="GLOBAL/twitter.js"></script-->
+		<script type="text/javascript" src="GLOBAL/twitter.js"></script>
 	</head>
 	<body><?
 		// dexter sinister asterisk
@@ -131,8 +136,11 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 			if(!$ds)
 			{
 			?><!--div id="logo">k.m</div-->
-			<marquee id="logo" class="marquee scroll"><span><? echo $tweet_text; ?></span></marquee>
-			<!--div id="source" style="display: none"><? echo $tweet_text; ?></div--><?
+			<!--marquee id="logo" class="marquee scroll">
+				<span><? echo $tweet_text; ?></span>
+			</marquee -->
+			<div id="logo"><div id="display"></div></div>
+			<div id="source" style="display: none"><? echo $tweet_text; ?></div><?
 			}
 			if($pageName != "press")
 			{

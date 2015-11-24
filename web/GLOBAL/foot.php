@@ -45,12 +45,24 @@
 		{
 		?><script type='text/javascript'>
 			logo = document.getElementById("logo");
-			logo.className = "blink-fade";
+			window.setTimeout(function(){logo.className = "blink-fade";}, 5000);
 		</script><?
 		}
 		if($dev)
 		{
-		?><?
+		?><script type='text/javascript'>
+			animate = !(checkCookie("animateCookie"));
+			setCookie("animateCookie");
+			if(animate)
+			{
+				delay = 100;
+				document.onload = initMessage("source", "display", true, delay);
+			}
+			else
+			{
+				document.getElementById("display").innerHTML = "k.m";
+			}
+		</script><?
 		}
 	?></body>
 </html>

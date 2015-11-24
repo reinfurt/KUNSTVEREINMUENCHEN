@@ -389,24 +389,13 @@ html, body {
 }
 
 .blink-fade {
-/* 
 	opacity: 0;
 	animation: blink-fade 15s 1 normal;
 	-webkit-animation: blink-fade 15s 1 normal;
 	transition-timing-function: ease-in-out;
 	-webkit-transition-timing-function: ease-in-out;
- */
 }
-
-.blink-fade span {
-	display: inline-block;
-	-webkit-marquee-direction: auto;
-	-webkit-marquee-style: scroll;
-	-webkit-marquee-speed: fast;
-	-webkit-marquee-increment: small;
-	-webkit-marquee-repetition: 6;
-	overflow-x: -webkit-marquee;
-}
+ 
 .blink-slow {
 	animation: blink 15s 1 normal;
 	-webkit-animation: blink 15s 1 normal;

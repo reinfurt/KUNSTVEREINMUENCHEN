@@ -10,11 +10,16 @@
 // 	globals
 var timeout;
 var pointer;
+var max_length = 10;
+var logo_text = "k.m";
+var logo_delay = 1500;
+var logo_div; 
 
 function initMessage(sourceId, displayId, animate, delay) 
 {
 	var source = document.getElementById(sourceId); 
 	var display = document.getElementById(displayId);
+	console.log(sourceId);
 	var message = buildMessage(source);
 
 	pointer = 0;                      
@@ -22,9 +27,11 @@ function initMessage(sourceId, displayId, animate, delay)
 	if(animate)
 	{
 		clearTimeout(timeout);
-		timeout=null;
+		timeout = null;
 		if(!delay) 
 			delay = 50;
+		display.innerHTML = "";
+		logo_div = document.getElementById("logo");
 		animateMessage(source,display,message,delay);
 	} 
 	else
@@ -65,11 +72,15 @@ function animateMessage(source, display, message, delay)
 	{
 		display.appendChild(message.childNodes[pointer].cloneNode(true));
 		pointer++;
+		if(pointer > max_length)
+			display.childNodes[0].parentNode.removeChild(display.childNodes[0]);
 		timeout = setTimeout(function(){animateMessage(source, display, message, delay);}, delay);
 	} 
 	else 
 	{
 		console.log("stop");
+		window.setTimeout(function(){display.innerHTML = logo_text}, logo_delay);
+		logo_div.addEventListener("mouseover", function(){initMessage("source", "display", true, delay)});
 		startStopAnimateMessage();
 	}
 }
