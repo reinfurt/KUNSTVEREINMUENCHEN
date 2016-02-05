@@ -4,15 +4,15 @@
 	<?php 
 		if ($isMobile) 
 		{ 
-		?><script type='text/javascript' src='GLOBAL/swipe.js'></script>
-		<script type='text/javascript' src='GLOBAL/mobile.js'></script><?php 
+		?><script type='text/javascript' src='GLOBAL/js/swipe.js'></script>
+		<script type='text/javascript' src='GLOBAL/js/mobile.js'></script><?php 
 		} 
 		else 
 		{ 
-		?><script type='text/javascript' src='GLOBAL/desktop.js'></script><?php
+		?><script type='text/javascript' src='GLOBAL/js/desktop.js'></script><?php
 			if($runParallax)
 			{
-			?><script type="text/javascript" src="GLOBAL/skrollr.min.js"></script>
+			?><script type="text/javascript" src="GLOBAL/js/skrollr.min.js"></script>
 			<script type="text/javascript">
 				window.onload = function(){startP()};
 				window.addEventListener("resize", refreshP);
@@ -37,32 +37,31 @@
 			}
 			if($ds) 
 			{
-			?><script type="text/javascript" src = "GLOBAL/ds.js"></script>
+			?><script type="text/javascript" src = "GLOBAL/js/ds.js"></script>
 			<script type="text/javascript">window.onload = radioInit();</script><? 
 			}
 		}
-		if($pageName == "member" || $id == "412" || $id == "421" || $isMobile || $pageName == "press")
+		if($pageName == "member" || $id == "412" || $id == "421" || ($isMobile && $id != "0") || $pageName == "press")
 		{
+		// hide the logo on various pages
 		?><script type='text/javascript'>
 			logo = document.getElementById("logo");
-			window.setTimeout(function(){logo.className = "blink-fade";}, 5000);
+			logo.innerHTML = "";
+			// window.setTimeout(function(){logo.className = "blink-fade";}, 5000);
 		</script><?
 		}
-		if($dev)
-		{
 		?><script type='text/javascript'>
-			animate = !(checkCookie("animateCookie"));
-			setCookie("animateCookie");
+			animate = true;
 			if(animate)
-			{
-				delay = 100;
-				document.onload = initMessage("source", "display", true, delay);
+			{	
+				start_delay = 0;
+				tweet_delay = 100;
+				document.onload = window.setTimeout(function(){initMessage("source", "display", true, tweet_delay);}, start_delay);
 			}
 			else
 			{
 				document.getElementById("display").innerHTML = "k.m";
 			}
 		</script><?
-		}
 	?></body>
 </html>

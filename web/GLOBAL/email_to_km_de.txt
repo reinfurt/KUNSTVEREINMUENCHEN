@@ -1,0 +1,54 @@
+Hello!
+
+A new membership has been [p/g] on the website.
+
+The membership information is as follows
+
+Membership type:
+[type]
+
+Membership fee:
+€ [donation]
+
+--
+
+RECIPIENT ADDRESS
+
+[rname]
+[rpartnername]
+[rstreetaddress]
+[rcity]
+[rcountry]
+[remail]
+[rmobile]
+[rbirthday]
+--
+
+SENDER ADDRESS
+
+[bname]
+[bpartnername]
+[bstreetaddress]
+[bcity]
+[bcountry]
+[bemail]
+[bmobile]
+[bbirthday]
+--
+
+BANK INFORMATION
+
+Account Holder:
+[holder]
+
+Credit Institute:
+[bank]
+
+Account Number:
+[account]
+
+IBAN:
+[iban]
+
+SWIFT:
+[swift]

@@ -111,6 +111,8 @@ while ($myrow  =  MYSQL_FETCH_ARRAY($result))
 		$images[$i] .= "</div>";
 		$images[$i] .= "<div class = 'caption'>";
 		$images[$i] .= ($i+1);	
+		if($id == 1377 || $id == 1376)
+			$images[$i] .= ". ".$mediaCaption;
 		$images[$i] .= "</div>";
 		$images[$i] .= "</div>";
 	}

@@ -73,6 +73,7 @@ $donation = $_POST["donation".$t];
 //     }
 // }
 </script><?
+// catch email errors
 if($action == "process")
 {
 	if($recipient_email == "yes" || $r == "own")
@@ -109,18 +110,23 @@ if($action == "process")
 				$errors["email"] = "Not a valid email address.<br>";
 		}
 	}
+	
 	if($t == "well" || $t == "benefactor" || $t == "sponsor")
 	{
 		$errors["donation"] = "Please enter a donation amount.<br>";
 	}
 }
 
+// send emails
 if($action == 'process' && empty($errors))
 {
-	$to_km["sender"] = $addr["email"]["r"];
+	if($r == "own")
+		$to_km["sender"] = $addr["email"]["r"];
+	else
+		$to_km["sender"] = $addr["email"]["b"];
 	$to_km["recipient"] = $km_email;
 	$to_km["subject"] = "Neuer Mitgliedschaftsantrag via Website";
-	$to_km["body"] = email_to_km();
+	$to_km["body"] = email_to_km2();
 	
 	$to_member["sender"] = $km_email;
 	if($r == "own")
@@ -131,15 +137,20 @@ if($action == 'process' && empty($errors))
 		$to_member["subject"] = "Ihr Mitgliedsantrag";
 	else
 		$to_member["subject"] = "Your Membership Application";
-	$to_member["body"] = file_get_contents("GLOBAL/email_to_member_".$lang.".txt");
+	$b = file_get_contents("GLOBAL/email_to_member_".$lang.".txt");
+	$b = str_replace("[type]", $type[$t]["label-".$lang], $b);
+	$b = str_replace("[donation]", $donation, $b);
+	$to_member["body"] = $b;
+	// $to_member["body"] = file_get_contents("GLOBAL/email_to_member_".$lang.".txt");
 	
-	$to_recipient["sender"] = $km_email;
-	$to_recipient["recipient"] = $addr["email"]["r"];
-	if($lang == "de")
-		$to_recipient["subject"] = "Ihr Mitgliedsantrag";
-	else
-		$to_recipient["subject"] = "Your Membership Application";
-	$to_recipient["body"] = file_get_contents("GLOBAL/email_to_member_".$lang.".txt");
+	
+// 	$to_recipient["sender"] = $km_email;
+// 	$to_recipient["recipient"] = $addr["email"]["r"];
+// 	if($lang == "de")
+// 		$to_recipient["subject"] = "Ihr Mitgliedsantrag";
+// 	else
+// 		$to_recipient["subject"] = "Your Membership Application";
+// 	$to_recipient["body"] = file_get_contents("GLOBAL/email_to_member_".$lang.".txt");
 
 	$status = "";
 	try
@@ -154,14 +165,6 @@ if($action == 'process' && empty($errors))
 					$to_member["recipient"], 
 					$to_member["subject"], 
 					$to_member["body"]);
-		// email to recipient
-		if($recipient_email == "yes")
-		{
-			systemEmail($to_recipient["sender"], 
-						$to_recipient["recipient"], 
-						$to_recipient["subject"], 
-						$to_recipient["body"]);
-		}
 	}
 	catch(Exception $e)
 	{
@@ -277,7 +280,7 @@ else {
 		}
 		if($r == "gift")
 		{
-		?><input type="checkbox" name="recipient_email" value="yes">Send a confirmation email to recipient</p><?
+		?><input type="checkbox" name="recipient_email" value="yes">Send membership card directly to recipient.</p --><?
 		}
 		?><table><?
 			$keys = array_keys($addr);
@@ -374,7 +377,11 @@ else {
 			BIC: HYVEDEMMXXX</br><br><?
 			if($lang == "en")
 			{
-			?>Your membership will be automatically renewed each year.<?
+			?>Please note that the membership will be renewed annually.<?
+			}
+			else
+			{
+			?>Bitte beachten Sie, dass sich die Mitgliedschaft jedes Jahr automatisch erneuert.<?
 			}
 		?></div>
 	</div><?

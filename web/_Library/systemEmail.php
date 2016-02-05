@@ -30,4 +30,12 @@ function systemEmail($sender, $recipient, $subject, $message)
 
 	mail($recipient, $subject, $message, $header, "-f$sender");
 }
+
+function systemEmailLong($from_name, $from_email, $to_name, $to_email, $subject, $message)
+{
+	$header = "From: $from_name <$from_email>\r\n";
+	$header.= "Message-ID: <".md5(uniqid(time()))."@{$_SERVER['SERVER_NAME']}>\r\n";
+	$r = "$to_name <$to_email>";
+	mail($r, $subject, $message, $header, "-f$from_email");
+}
 ?>

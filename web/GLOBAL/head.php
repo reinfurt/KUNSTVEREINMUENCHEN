@@ -23,7 +23,7 @@ $dev = systemCookie("devCookie", $dev, 0);
 // 	die('Under construction . . .');
 
 // * on DS page only
-if ($id == "1370") {
+if ($id == "1370" || $id == "1329") {
 	$ds = TRUE;
 } else {
 	$ds = FALSE;
@@ -74,16 +74,17 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="no-skrollr">
 	<head>
 		<title><?php echo $documentTitle; ?></title>
+		<meta charset="utf-8">
 		<meta http-equiv="Content-Type" content="text/xhtml; charset=utf-8"> 
 		<meta http-equiv="Title" content="<?php echo $documentTitle; ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"-->
 		
 		<link rel="shortcut icon" href="MEDIA/km.png">
-		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/normalise.css">
-		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/global.css">
-		<script type="text/javascript" src="GLOBAL/global.js"></script>
-		<script type="text/javascript" src="GLOBAL/twitter.js"></script>
+		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/css/normalise.css">
+		<link rel="stylesheet" type="text/css" media="all" href="GLOBAL/css/global.css">
+		<script type="text/javascript" src="GLOBAL/js/global.js"></script>
+		<script type="text/javascript" src="GLOBAL/js/twitter.js"></script>
 	</head>
 	<body><?
 		// dexter sinister asterisk
@@ -111,7 +112,7 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 				}
 			?>
 			<video id="radio" width="480" height="360" poster="MEDIA/blank.gif" autoplay=1 loop=1>
-				<source src="MEDIA/MP4/README-web.mp4" type="video/mp4">
+				<source src="MEDIA/MP4/README-web-<? echo $lang; ?>.mp4" type="video/mp4">
 			</video><?
 			}
 			else
@@ -133,14 +134,16 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 					<div class="clearer"></div>
 				</div>
 			</div><?
-			if(!$ds)
+			if($id == "0")
 			{
-			?><!--div id="logo">k.m</div-->
-			<!--marquee id="logo" class="marquee scroll">
-				<span><? echo $tweet_text; ?></span>
-			</marquee -->
-			<div id="logo"><div id="display"></div></div>
+			?><div id="logo"><div 
+				id="display"
+				onclick="location.href='https://twitter.com/k_dot_m';"></div></div>
 			<div id="source" style="display: none"><? echo $tweet_text; ?></div><?
+			}
+			else
+			{
+			?><div id="logo">k.m</div><?
 			}
 			if($pageName != "press")
 			{

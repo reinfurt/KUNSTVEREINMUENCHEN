@@ -140,4 +140,87 @@ function email_to_km()
 	return $mail;
 }
 
+function email_to_km2()
+{
+	global $type;
+	global $addr;
+	global $bank;
+	global $t;
+	global $b;
+	global $r;
+	global $gr;
+	global $lang;
+	global $donation;
+	global $recipient_email;
+	
+	$mail = file_get_contents("GLOBAL/email_to_km_".$lang.".txt");
+	
+	// purchased / gifted
+	if ($r == "gift")
+		$mail = str_replace("[p/g]", "gifted", $mail);
+	else
+	{
+		$mail = str_replace("[p/g]", "purchased", $mail);
+		$mail = str_replace("RECIPIENT", "MEMBER", $mail);
+		$mail = str_replace("SENDER ADDRESS\n", "", $mail);
+	}
+	
+	// membership type
+	$mail = str_replace("[type]", $type[$t]["label-".$lang], $mail);
+
+	// membership fee
+	$mail = str_replace("[donation]", $donation, $mail);
+	
+	
+	// recipient address
+	$keys = array_keys($addr);
+	for($i = 0; $i < count($keys); $i++)
+	{
+		if($addr[$keys[$i]]["r"])
+			$mail = str_replace("[r$keys[$i]]", $addr[$keys[$i]]["label-".$lang].":\n".$addr[$keys[$i]]["r"]."\n", $mail);
+		else
+			$mail = str_replace("[r$keys[$i]]\n", "", $mail);
+	}
+	
+	// sender address
+	for($i = 0; $i < count($keys); $i++)
+	{
+		if($addr[$keys[$i]]["b"])
+			$mail = str_replace("[b$keys[$i]]", $addr[$keys[$i]]["label-".$lang].":\n".$addr[$keys[$i]]["b"]."\n", $mail);
+		else
+			$mail = str_replace("[b$keys[$i]]\n", "", $mail);
+	}
+	
+	// bank information
+	if($b == "deposit")
+	{
+		$keys = array_keys($bank);
+		for($i = 0; $i < count($keys); $i++)
+		{
+			if($bank[$keys[$i]]["v"])
+				$mail = str_replace("[$keys[$i]]", $bank[$keys[$i]]["v"], $mail);
+			else
+				$mail = str_replace("[$keys[$i]]\n", "", $mail);
+		}
+	}
+	else
+	{
+		$mail = explode("BANK", $mail)[0];
+		if($lang == "en")
+			$mail.= "The member has elected to send the payment via bank transfer.";
+		else
+			$mail.= "The member has elected to send the payment via bank transfer."; // CHANGE THIS TO GERMAN
+	}
+	
+	if($r == "gift")
+	{
+		if($recipient_email == "yes")
+			$mail.= "\n\nPlease send the membership card to the recipient.";
+		else
+			$mail.= "\n\nPlease send the membership card to the sender.";
+	}
+	
+	return $mail;
+}
+
 ?>
