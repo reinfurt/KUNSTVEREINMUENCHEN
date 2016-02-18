@@ -1,0 +1,24 @@
+/* load neuzeit s fonts */
+@font-face {
+    font-family: 'neuzeit-s-heavy';
+    src: url('../fonts/nzs-heav.eot');
+    src: url('../fonts/nzs-heav.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nzs-heav.woff2') format('woff2'),
+         url('../fonts/nzs-heav.woff') format('woff'),
+         url('../fonts/nzs-heav.ttf') format('truetype'),
+         url('../fonts/nzs-heav.svg#neuzeitsbookheavy') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'neuzeit-s-book';
+    src: url('../fonts/nzs-book.eot');
+    src: url('../fonts/nzs-book.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/nzs-book.woff2') format('woff2'),
+         url('../fonts/nzs-book.woff') format('woff'),
+         url('../fonts/nzs-book.ttf') format('truetype'),
+         url('../fonts/nzs-book.svg#neuzeitsbook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
