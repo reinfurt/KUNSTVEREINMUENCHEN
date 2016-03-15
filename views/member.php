@@ -210,7 +210,14 @@ else {
 					echo") ";
 			?></span><?
 			if($i > 2) {
-			?>€<input type="text" name="donation<? echo $k; ?>"><?
+				if($lang == "de")
+				{
+				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="individuelle F&ouml;rdersumme"; ?><?
+				}
+				else
+				{
+				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="amount of support"; ?><?
+				}
 			}
 			else {
 			?><input type="hidden" name="donation<? echo $k; ?>" value="<? echo $p; ?>"><?
@@ -226,7 +233,7 @@ else {
 		}
 		if($r == "gift")
 		{
-		?><input type="checkbox" name="recipient_email" value="yes">Send membership card directly to recipient.</p --><?
+		?><input type="checkbox" name="recipient_email" value="yes">Send membership card directly to recipient.<?
 		}
 		?><table><?
 			$keys = array_keys($addr);
