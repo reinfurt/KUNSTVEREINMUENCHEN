@@ -217,6 +217,7 @@ input[type="text"] {
 	top: 0px;
 	left: 0px;
 	padding: 20px;
+	z-index: 10;
 }
 
 #date {
@@ -231,12 +232,19 @@ input[type="text"] {
 #logo {
 	position: fixed;
 	top: 50%;
-	transform: translateY(-50%);
-	width: 100%;
+	left: 50%;
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	/*width: 100%;*/
 	font-family: neuzeit-s-heavy;
 	font-size: 80pt;
 	line-height: 90pt;
 	text-align: center;
+}
+
+#logo.twitter {
+	width: 100%;
 }
 
 marquee#logo {

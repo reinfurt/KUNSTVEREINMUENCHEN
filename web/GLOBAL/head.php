@@ -134,9 +134,9 @@ echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n";
 					<div class="clearer"></div>
 				</div>
 			</div><?
-			if($id == "0")
+			if($id == "0" && $pageName != "member-new")
 			{
-			?><div id="logo"><div 
+			?><div id="logo" class="twitter"><div 
 				id="display"
 				onclick="location.href='https://twitter.com/k_dot_m';"></div></div>
 			<div id="source" style="display: none"><? echo $tweet_text; ?></div><?

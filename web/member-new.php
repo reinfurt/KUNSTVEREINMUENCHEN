@@ -264,7 +264,14 @@ else {
 					echo") ";
 			?></span><?
 			if($i > 2) {
-			?>€<input type="text" name="donation<? echo $k; ?>"><?
+				if($lang == "de")
+				{
+				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="individuelle F&ouml;rdersumme"; ?><?
+				}
+				else
+				{
+				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="amount of support"; ?><?
+				}
 			}
 			else {
 			?><input type="hidden" name="donation<? echo $k; ?>" value="<? echo $p; ?>"><?
