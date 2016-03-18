@@ -35,17 +35,17 @@ function updateCounter() {
 // image gallery helpers
 function setbg(url) {
 	// build bg style
-	bi = "url('/".concat(url).concat("')");
-	// bs = bs.concat("')");
-	//bs = bs.concat(" no-repeat center center fixed");
+	// bi = "url('".concat(url).concat("')");
+	
+	// template string -- this is probs totally unsafe in old browsers, BUT
+	bi = `url('${url}')`;
+	bi = "url('"+ url + "')";
+	
 	// set bg style
 	g = document.getElementById("nav-container");
-	// g.style.background = bs;
 	g.style.backgroundImage = bi;
 	g.style.backgroundRepeat = "no-repeat";
-	//g.style.backgroundAttachment = "fixed";
 	g.style.backgroundPostion = "center center";
-	// g.style.backgroundSize = "contain";
 	g.style.backgroundSize = "cover";
 }
 

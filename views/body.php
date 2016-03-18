@@ -29,7 +29,7 @@ if($is_mobile)
 	?></div>
 </div><?
 }
-$image_files = array();
+// $image_files = array();
 ?><div id="nav-container" class='hidden gallery'>
 	<div id="prev" onclick='prev();'>
 		<img class="clear" src="/media/png/la.png" style="width: 15px">
@@ -50,9 +50,9 @@ $image_files = array();
 			?></div>
 		</div>
 		<div class="images"><?
-		for($i = 0; $i < count($media_arr); $i++)
+		for($i = 0; $i < count($image_files); $i++)
 		{
-			$img_url = m_url($media_arr[$i]);
+			$img_url = $image_files[$i];
 			$padding = rand(0, 150)*10;
 			$width = rand(2, 5)*10;
 			$float = (rand(0, 1) == 0) ? 'left' : 'right';
@@ -72,7 +72,6 @@ $image_files = array();
 				echo $i+1;
 			?></div>
 			</div><?
-			$image_files[] = trim($img_url, "/");
 		}
 		?></div>
 		<script type="text/javascript">
