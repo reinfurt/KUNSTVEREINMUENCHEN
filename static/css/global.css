@@ -202,7 +202,7 @@ input[type="text"] {
 /* id styles */
 #fixed-container {
 	position: fixed;
-/* 	z-index: 10; */
+	z-index: 10;
 }
 
 #header {
