@@ -53,7 +53,8 @@ $bank["swift"]["label-en"] = "SWIFT";
 
 // CHANGE THIS WHEN GOING LIVE
 // $km_email = "clara@kunstverein-muenchen.de";
-$km_email = "lilyhealey1@gmail.com";
+// $km_email = "lilyhealey1@gmail.com";
+$km_email = "sarah@kunstverein-muenchen.de";
 
 // build email to be sent to k.m
 function email_to_km()
