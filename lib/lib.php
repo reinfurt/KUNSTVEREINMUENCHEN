@@ -7,8 +7,8 @@ function is_valid_email($email)
 function send_mail($from, $to, $subject, $message)
 {
 	// address headers
-	$header = "From: $sender <$sender>\r\n";
-	$header.= "X-X-Sender: $sender\r\n";
+	$header = "From: $from <$from>\r\n";
+	$header.= "X-X-Sender: $from\r\n";
 	
 	// mail program headers
 	$header.= "Message-ID: <".md5(uniqid(time()))."@{$_SERVER['SERVER_NAME']}>\r\n";
