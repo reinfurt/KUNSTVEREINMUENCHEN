@@ -77,6 +77,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteCond %{QUERY_STRING} 5,4,55,1328
 # RewriteRule ^index.php$ index.php?id=5,4,55,1370 [R]
 
+# o-r-g
+RewriteRule ^OPEN-RECORDS-GENERATOR(.*)$ open-records-generator [R]
+
 # direct everything to index.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
