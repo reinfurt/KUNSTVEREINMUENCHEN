@@ -4,7 +4,8 @@ if(empty($wormhole))
 
 if($wormhole == 1)
 {
-?><div>hi!</div><?
+?>
+<script type="text/javascript" src="/static/js/cube.js"></script><?
 }
 elseif($wormhole == 2)
 {
