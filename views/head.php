@@ -10,6 +10,7 @@ require_once("tweets.php");
 // specific to this 'app'
 $config_dir = $root."/config/";
 require_once($config_dir."url.php");
+require_once($config_dir."request.php");
 
 $db = db_connect("guest");
 
@@ -17,6 +18,7 @@ $oo = new Objects();
 $mm = new Media();
 $ww = new Wires();
 $uu = new URL();
+$rr = new Request();
 
 $title = "k.m";
 $time = date("H:i");
@@ -58,6 +60,17 @@ $is_home = ($uu->url == "en" || $uu->url == "de" || !$uu->id);
 $is_member_page = ($uri == "/de/mitgliedschaft/mitglied-werden") || ($uri == "/en/membership/apply");
 $is_press_page = ($uri == "/en/contact/presse") || ($uri == "/de/kontakt/presse");
 $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
+
+require_once("lib/lib.php");
+if($rr->dev)
+{
+	$dev = 1;
+	set_cookie("dev", $dev);
+}
+else
+{
+	$dev = get_cookie("dev");
+}
 ?>
 <!DOCTYPE html>
 <html class="no-skrollr">
@@ -71,7 +84,7 @@ $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
 		<script type="text/javascript" src="/static/js/global.js"></script>
 		<script type="text/javascript" src="/static/js/twitter.js"></script>
 	</head>
-	<body>
+	<body><? if($dev) echo "dev set"; ?>
 		<div id="fixed-container" class="no-gallery">
 			<div id="header">
 				<div id="date"><a href="/"><?php echo $time; ?></a></div>

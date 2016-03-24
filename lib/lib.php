@@ -28,4 +28,23 @@ function uri_is($uri)
 {
 	return $uri == $_SERVER['REQUEST_URI'];
 }
+
+function set_cookie($name=null, $value=null, $expires=null, $path="/")
+{
+	if(!empty($value))
+	{
+		if(empty($expires))
+			$expires = time() + (86400 * 7);
+		setcookie($name, $value, $expires, $path);
+	}
+}
+
+function get_cookie($name)
+{
+	if(isset($_COOKIE[$name]))
+		return $_COOKIE[$name];
+	else
+		return null;
+}
+
 ?>
