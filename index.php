@@ -11,5 +11,9 @@ elseif(in_array($_SERVER['REQUEST_URI'], $form))
 else
 	require_once('views/body.php');
 
+// dev is set in views/head.php
+if($dev)
+	require_once('views/wormhole.php');
+
 require_once('views/foot.php');
 ?>

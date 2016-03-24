@@ -62,15 +62,24 @@ $is_press_page = ($uri == "/en/contact/presse") || ($uri == "/de/kontakt/presse"
 $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
 
 require_once("lib/lib.php");
+
+// get / set cookies
 if($rr->dev)
 {
-	$dev = 1;
+	$dev = $rr->dev;
 	set_cookie("dev", $dev);
 }
 else
-{
 	$dev = get_cookie("dev");
+	
+if($rr->wormhole)
+{
+	$wormhole = $rr->wormhole;
+	set_cookie("wormhole", $wormhole);
 }
+else
+	$wormhole = get_cookie("wormhole");
+
 ?>
 <!DOCTYPE html>
 <html class="no-skrollr">
@@ -84,7 +93,7 @@ else
 		<script type="text/javascript" src="/static/js/global.js"></script>
 		<script type="text/javascript" src="/static/js/twitter.js"></script>
 	</head>
-	<body><? if($dev) echo "dev set"; ?>
+	<body>
 		<div id="fixed-container" class="no-gallery">
 			<div id="header">
 				<div id="date"><a href="/"><?php echo $time; ?></a></div>
