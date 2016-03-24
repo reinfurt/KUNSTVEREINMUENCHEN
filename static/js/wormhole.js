@@ -6,6 +6,6 @@ function wormhole_ajax()
 			document.getElementById("wormhole-container").innerHTML = xhttp.responseText;
 		}
 	};
-	xhttp.open("GET", "views/wormhole-ajax.php", true);
+	xhttp.open("GET", "/views/wormhole-ajax.php", true);
 	xhttp.send();
 }

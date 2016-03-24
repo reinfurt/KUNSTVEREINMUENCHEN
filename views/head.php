@@ -64,14 +64,6 @@ $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
 require_once("lib/lib.php");
 
 // get / set cookies
-if($rr->dev)
-{
-	$dev = $rr->dev;
-	set_cookie("dev", $dev);
-}
-else
-	$dev = get_cookie("dev");
-	
 if($rr->wormhole)
 {
 	$wormhole = $rr->wormhole;
@@ -95,7 +87,7 @@ else
 	</head>
 	<body>
 		<div id="fixed-container" class="no-gallery"><?
-			if($dev)
+			if(($wormhole == 2 || $wormhole == 3))
 				require_once("header-2.php");
 			else
 				require_once("header.php");
