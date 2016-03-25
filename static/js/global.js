@@ -42,11 +42,13 @@ function close_gallery() {
 /* utilities */
 
 function hide(e) {
-	e.className += " hidden";	
+	// e.className += " hidden";	
+	e.classList.add("hidden");
 }
 
 function show(e) {
-	e.className = e.className.replace(/(?:^|\s)hidden(?!\S)/g , '');
+	// e.className = e.className.replace(/(?:^|\s)hidden(?!\S)/g , '');
+	e.classList.remove("hidden");
 }
 
 /* can i get rid of these functions? */

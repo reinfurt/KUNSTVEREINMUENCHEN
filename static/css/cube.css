@@ -103,3 +103,7 @@
 	-webkit-animation-duration: 10s;
 	animation-duration: 10s;
 }
+
+#wormhole a {
+	background-color: initial;
+}

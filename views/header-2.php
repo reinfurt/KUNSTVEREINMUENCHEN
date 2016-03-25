@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" media="all" href="/static/css/cube.css">
 <script type="text/javascript" src="/static/js/cube.js"></script>
 <div id="header">
-	<div id="date"><a href="javascript:show();"><?php echo $time; ?></a></div>
+	<div id="date"><a href="javascript:rotate_menu();"><?php echo $time; ?></a></div>
 	<div id="menu-cube">
 		<div class="f1"><?
 			$prevd = $nav[0]['depth'];
