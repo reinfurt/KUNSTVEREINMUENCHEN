@@ -1,4 +1,9 @@
 /* element styles */
+* {
+	box-sizing: border-box;
+}
+
+
 body {
 	margin: 0px;
 	font-size: 17px;

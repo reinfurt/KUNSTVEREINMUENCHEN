@@ -1,4 +1,5 @@
-<link rel="stylesheet" type="text/css" media="all" href="/static/css/cube.css">
+<?
+?><link rel="stylesheet" type="text/css" media="all" href="/static/css/cube.css">
 <script type="text/javascript" src="/static/js/cube.js"></script>
 <div id="header">
 	<div id="date"><a href="javascript:rotate_menu();"><?php echo $time; ?></a></div>
@@ -24,15 +25,21 @@
 			}
 			?><div class="clearer"></div>
 		</div>
-		<div class="f2">
-			<li>
-				<a href"/">menu-alt</a>
-			</li>
-			<ul class="nav-level">
-				<li>
-					<a href"/">menu-alt</a>
-				</li>
-			</ul>
+		<div class="f2"><?
+			$menu_alt = array();
+			$menu_alt['de'] = 1519;
+			$menu_alt['en'] = 1518;
+			$menu_id = $menu_alt[$lang];
+			$menu = $oo->get($menu_id);
+			$menu_body = $menu['body'];
+			$menu_items = explode(PHP_EOL, $menu_body);
+			?><li><? echo trim($menu['name1'], "."); ?></li>
+			<ul><?
+				foreach($menu_items as $i)
+				{
+				?><li><? echo $i; ?></li><?
+				}
+			?></ul>
 		</div>
 	</div>
 </div>
