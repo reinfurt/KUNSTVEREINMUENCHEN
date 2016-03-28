@@ -27,7 +27,7 @@
 		</div>
 		<div class="f2"><?
 			$menu_alt = array();
-			$menu_alt['de'] = 1519;
+			$menu_alt['de'] = 1517;
 			$menu_alt['en'] = 1518;
 			$menu_id = $menu_alt[$lang];
 			$menu = $oo->get($menu_id);
