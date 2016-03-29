@@ -216,7 +216,6 @@ input[type="text"] {
 	left: 0px;
 	padding: 20px;
 	z-index: 10;
-	width: 100%;
 }
 
 #date {
@@ -495,6 +494,10 @@ html, body {
 		overflow: inherit;
 		font-size: 20px;
 		line-height: 25px;
+	}
+	
+	#header {
+		width: 100%;
 	}
 	
 	/* classes */
