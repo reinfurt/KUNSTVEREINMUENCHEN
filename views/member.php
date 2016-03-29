@@ -70,7 +70,8 @@ if($action == "process")
 	
 	if($t == "well" || $t == "benefactor" || $t == "sponsor")
 	{
-		$errors["donation"] = "Please enter a donation amount.<br>";
+		if(empty($donation))
+			$errors["donation"] = "Please enter a donation amount.<br>";
 	}
 }
 
