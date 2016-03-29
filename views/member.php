@@ -160,7 +160,7 @@ if($lang == "de") {
 	?><div>Antrag auf Mitgliedschaft</div><?
 	}
 	else {
-	?><div>Membership Gift Application (de)</div><?
+	?><div>Antrag auf Mitgliedschaft</div><?
 	}
 }
 else {
@@ -202,8 +202,13 @@ else {
 			><? echo $l; ?></label>
 			<span 
 				id="price<? echo $k; ?>"
-			><? if($i > 2) 
-					echo "(from "; 
+			><? if($i > 2)
+				{
+					if($lang == "de")
+						echo "(ab ";
+					else
+						echo "(from "; 
+				}
 				?>€ <? 
 				echo $p; 
 				if($i > 2) 
@@ -212,7 +217,7 @@ else {
 			if($i > 2) {
 				if($lang == "de")
 				{
-				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="individuelle F&ouml;rdersumme"; ?><?
+				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="F&ouml;rdersumme"; ?><?
 				}
 				else
 				{
@@ -385,9 +390,16 @@ else
 			?>I would like to give an annual membership at Kunstverein München e.V. </span>
 			<span>as a gift.</span><? } ?>
 		</div>
-	</div>
-	<input type="submit" value="Continue">
-	<input name='action' type='hidden' value='type-submitted'>
+	</div><?
+	if($lang == "de")
+	{
+	?><input type="submit" value="Weiter"><?
+	}
+	else
+	{
+	?><input type="submit" value="Continue"><?
+	}
+	?><input name='action' type='hidden' value='type-submitted'>
 </form>
 </div><?
 }
