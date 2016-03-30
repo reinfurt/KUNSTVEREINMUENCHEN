@@ -72,6 +72,11 @@ if($rr->wormhole)
 else
 	$wormhole = get_cookie("wormhole");
 
+// subscribe data
+$subscribe["de"]["url"] = "/de/kontakt/newsletter";
+$subscribe["en"]["url"] = "/en/contact/newsletter";
+$subscribe["de"]["text"] = "abonnieren";
+$subscribe["en"]["text"] = "subscribe";
 ?>
 <!DOCTYPE html>
 <html class="no-skrollr">
@@ -109,5 +114,13 @@ else
 				<span class="<? if($lang=="en") echo "selected";?>"> 
 					<a href="/en">en</a>
 				</span>
-			</div>
-		</div>
+			</div><?
+			if(count($uu->ids) == 2)
+			{
+			?><div id="subscribe">
+				<span class="blink">
+				<a href="<?php echo $subscribe[$lang]['url']; ?>"><? echo $subscribe[$lang]["text"]; ?></a>
+				</span>
+			</div><?
+			}
+		?></div>
