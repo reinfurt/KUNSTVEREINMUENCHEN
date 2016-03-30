@@ -386,7 +386,7 @@ else
 		<div>
 			<p><input type="radio" name="recipient" value="gift"><?
 			if($lang == "de") {
-			?>Ich möchte eine Jahresmitgliedschaft des Kunstverein München e.V. zu schenken.</span><?
+			?>Ich möchte eine Jahresmitgliedschaft des Kunstverein München e.V. verschenken.</span><?
 			} else {
 			?>I would like to give an annual membership at Kunstverein München e.V. </span>
 			<span>as a gift.</span><? } ?>
