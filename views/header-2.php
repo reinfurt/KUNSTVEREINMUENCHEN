@@ -40,5 +40,6 @@
 				}
 			?></ul>
 		</div>
+		<div>&nbsp;</div>
 	</div>
 </div>

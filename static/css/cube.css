@@ -22,7 +22,7 @@
 #menu-cube div {
 	margin: 0px 20px;
 	display: block;
-	position: absolute;
+	/*position: absolute;*/
 	top: 0px;
 }
 
@@ -34,10 +34,13 @@
 
 
 #menu-cube .f1 { 
-	transform: rotateY(0deg); 
+	transform: rotateY(0deg);
 }
 #menu-cube .f2 { 
-	transform: rotateY(90deg); 
+	transform: rotateY(90deg);
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 
 #menu-cube .f3 { 
