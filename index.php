@@ -10,10 +10,5 @@ elseif(in_array($_SERVER['REQUEST_URI'], $form))
 	require_once('views/member.php');
 else
 	require_once('views/body.php');
-
-// wormhole is set in views/head.php
-if($wormhole)
-	require_once('views/wormhole.php');
-
 require_once('views/foot.php');
 ?>

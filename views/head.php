@@ -87,7 +87,7 @@ else
 	</head>
 	<body>
 		<div id="fixed-container" class="no-gallery"><?
-			if(($wormhole == 2 || $wormhole == 3))
+			if($wormhole)
 				require_once("header-2.php");
 			else
 				require_once("header.php");

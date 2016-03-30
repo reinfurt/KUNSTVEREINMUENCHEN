@@ -1,5 +1,4 @@
-<?
-?><link rel="stylesheet" type="text/css" media="all" href="/static/css/cube.css">
+<link rel="stylesheet" type="text/css" media="all" href="/static/css/cube.css">
 <script type="text/javascript" src="/static/js/cube.js"></script>
 <div id="header">
 	<div id="date"><a href="javascript:rotate_menu();"><?php echo $time; ?></a></div>
