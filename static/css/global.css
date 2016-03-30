@@ -19,7 +19,8 @@ body {
 
 /* links */
 
-a {
+a,
+.button {
 	text-decoration: none;
 	color: #fff;
 	background-color: #183029;
@@ -27,7 +28,8 @@ a {
 	padding-right: 1px;
 }
 
-a:hover {
+a:hover,
+.button:hover {
 	color: #183029;
 	background-color: #fff;
 }
@@ -50,6 +52,13 @@ a#controls {
 }
 a#controls:hover {
 	background-color: transparent;
+}
+
+.button {
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
 }
 
 /* images */
@@ -95,6 +104,7 @@ input {
 	border-color: #183029;
 	margin: 4px;
 	color: rgba(24, 48, 41, 1);
+	font-size: inherit;
 	/*padding: 2px;*/
 }
 
@@ -103,7 +113,7 @@ input[type="submit"], input.submit {
   	background-color: #183029;
   	padding-left: 10px;
   	padding-right: 10px;
-  	margin: 0px;
+  	margin: 4px;
 }
 
 input[type="submit"]:hover {
@@ -482,6 +492,8 @@ html, body {
 #header > div {
 	display: inline-block;
 }
+
+
 
 /* mobile styles */
 @media screen and (max-device-width: 568px) 

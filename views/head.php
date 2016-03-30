@@ -73,8 +73,8 @@ else
 	$wormhole = get_cookie("wormhole");
 
 // subscribe data
-$subscribe["de"]["url"] = "/de/kontakt/newsletter";
-$subscribe["en"]["url"] = "/en/contact/newsletter";
+$subscribe["de"]["url"] = "http://eepurl.com/bpAhHr";
+$subscribe["en"]["url"] = "http://eepurl.com/bpAhHr";
 $subscribe["de"]["text"] = "abonnieren";
 $subscribe["en"]["text"] = "subscribe";
 ?>
