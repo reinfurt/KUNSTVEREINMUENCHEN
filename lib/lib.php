@@ -33,8 +33,6 @@ function set_cookie($name=null, $value=null, $expires=null, $path="/")
 {
 	if(!empty($value))
 	{
-		if(empty($expires))
-			$expires = time() + (86400 * 7);
 		setcookie($name, $value, $expires, $path);
 	}
 }
