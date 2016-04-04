@@ -36,12 +36,14 @@ a:hover,
 
 /* treat menu / press links differently */
 #fixed-container a, 
-.press-image a {
+.press-image a,
+.exhibitions a {
 	color: #183029;
 	background-color: transparent;
 }
 
-#fixed-container a:hover {
+#fixed-container a:hover,
+.exhibitions a:hover {
 	color: #fff;
 	background-color: #183029;
 }
@@ -217,11 +219,13 @@ input[type="text"] {
 /* id styles */
 #fixed-container {
 	position: fixed;
+	/*position: absolute;*/
 	z-index: 10;
 }
 
 #header {
 	position: fixed;
+	/*position: relative;*/
 	top: 0px;
 	left: 0px;
 	padding: 20px;
@@ -390,6 +394,11 @@ html, body {
 
 .hidden {
 	display: none;
+}
+
+.text li {
+	padding-left: 20px;
+	text-indent: -20px;
 }
 
 /* animations */
