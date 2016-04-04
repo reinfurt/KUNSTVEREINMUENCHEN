@@ -12,7 +12,13 @@ if($uu->url == "press" or $uu->url == "presse")
 elseif(in_array($_SERVER['REQUEST_URI'], $form)) 
 	require_once('views/member.php');
 elseif(in_array($_SERVER['REQUEST_URI'], $ex) && $wormhole)
+{
 	require_once('views/exhibitions.php');
+	if($wormhole == 2)
+	{
+		require_once('views/wormhole.php');
+	}
+}
 else
 	require_once('views/body.php');
 require_once('views/foot.php');
