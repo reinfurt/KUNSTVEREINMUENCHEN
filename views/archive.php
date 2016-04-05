@@ -23,6 +23,20 @@ $e['pub']['en']['id'] = 6;
 $e['pub']['de']['url'] = "/de/programm/publikationen";
 $e['pub']['en']['url'] = "/en/program/publications";
 
+$e['evt']['de'] = array();
+$e['evt']['en'] = array();
+$e['evt']['de']['id'] = 39;
+$e['evt']['en']['id'] = 31;
+$e['evt']['de']['url'] = "/de/programm/veranstaltungen";
+$e['evt']['en']['url'] = "/en/program/events";
+
+$e['sch']['de'] = array();
+$e['sch']['en'] = array();
+$e['sch']['de']['id'] = 1434;
+$e['sch']['en']['id'] = 1413;
+$e['sch']['de']['url'] = "/de/programm/schaufenster";
+$e['sch']['en']['url'] = "/en/program/schaufenster";
+
 $id = $e[$a_type][$lang]['id'];;
 $url = $e[$a_type][$lang]['url'];
 

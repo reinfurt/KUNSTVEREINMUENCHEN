@@ -15,6 +15,16 @@ $archive[] = "/de/programm/publikationen";
 $types[] = 'pub';
 $types[] = 'pub';
 // kino
+// schaufenster
+$archive[] = "/de/programm/schaufenster";
+$archive[] = "/en/program/schaufenster";
+$types[] = "sch";
+$types[] = "sch";
+// events
+$archive[] = "/en/program/events";
+$archive[] = "/de/programm/veranstaltungen";
+$types[] = "evt";
+$types[] = "evt";
 
 $uri = $_SERVER['REQUEST_URI'];
 
