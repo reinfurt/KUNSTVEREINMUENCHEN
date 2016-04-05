@@ -2,18 +2,32 @@
 $form["de"] = "/de/mitgliedschaft/mitglied-werden";
 $form['en'] = "/en/membership/apply";
 
-$ex['en'] = "/en/program/exhibitions/2016-1823";
-$ex['de'] = "/de/programm/ausstellungen/2016-1823";
+$archive = array();
+$types = array();
+// exhibitions
+$archive[] = "/en/program/exhibitions/2016-1823";
+$archive[] = "/de/programm/ausstellungen/2016-1823";
+$types[] = 'exh';
+$types[] = 'exh';
+// publications
+$archive[] = "/en/program/publications";
+$archive[] = "/de/programm/publikationen";
+$types[] = 'pub';
+$types[] = 'pub';
+// kino
+
+$uri = $_SERVER['REQUEST_URI'];
 
 require_once('views/head.php');
 
 if($uu->url == "press" or $uu->url == "presse")
 	require_once('views/press.php');
-elseif(in_array($_SERVER['REQUEST_URI'], $form)) 
+elseif(in_array($uri, $form)) 
 	require_once('views/member.php');
-elseif(in_array($_SERVER['REQUEST_URI'], $ex) && $wormhole)
+elseif(in_array($uri, $archive) && $wormhole)
 {
-	require_once('views/exhibitions.php');
+	$a_type = $types[array_search($uri, $archive)];
+	require_once('views/archive.php');
 	if($wormhole == 2)
 	{
 		require_once('views/wormhole.php');

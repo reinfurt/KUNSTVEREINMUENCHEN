@@ -1,14 +1,30 @@
-<?			
-$e_root = array();
-$e_root['de'] = array();
-$e_root['en'] = array();
-$e_root['de']['id'] = 421;
-$e_root['en']['id'] = 412;
-$e_root['de']['url'] = "/de/programm/ausstellungen/2016-1823";
-$e_root['en']['url'] = "/en/program/exhibitions/2016-1823";
+<?
+// archive pages
+// + exhibitions
+// + kino
+// + publications
 
-$id = $e_root[$lang]['id'];;
-$url = $e_root[$lang]['url'];
+$e = array();
+$e['exh'] = array();
+$e['kin'] = array();
+$e['pub'] = array();
+
+$e['exh']['de'] = array();
+$e['exh']['en'] = array();
+$e['exh']['de']['id'] = 421;
+$e['exh']['en']['id'] = 412;
+$e['exh']['de']['url'] = "/de/programm/ausstellungen/2016-1823";
+$e['exh']['en']['url'] = "/en/program/exhibitions/2016-1823";
+
+$e['pub']['de'] = array();
+$e['pub']['en'] = array();
+$e['pub']['de']['id'] = 12;
+$e['pub']['en']['id'] = 6;
+$e['pub']['de']['url'] = "/de/programm/publikationen";
+$e['pub']['en']['url'] = "/en/program/publications";
+
+$id = $e[$a_type][$lang]['id'];;
+$url = $e[$a_type][$lang]['url'];
 
 $exhibitions = array();
 
