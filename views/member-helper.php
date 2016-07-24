@@ -52,7 +52,8 @@ $bank["iban"]["label-en"] = "IBAN";
 $bank["swift"]["label-en"] = "SWIFT";
 
 // CHANGE THIS WHEN GOING LIVE
-$km_email = "clara@kunstverein-muenchen.de";
+$km_email = "phoebe@kunstverein-muenchen.de";
+// $km_email = "clara@kunstverein-muenchen.de";
 // $km_email = "lilyhealey1@gmail.com";
 // $km_email = "sarah@kunstverein-muenchen.de";
 
