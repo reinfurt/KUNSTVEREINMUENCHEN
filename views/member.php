@@ -4,6 +4,9 @@ require_once("lib/lib.php");
 
 $action = $_REQUEST['action'];
 $errors = NULL;
+$dev = true;
+if ($dev)
+	$errors["dev"] = "** Please try again in one hour. **<br>";
 
 $r = $_POST["recipient"];
 $gr = $_POST["giftrecipient"];
@@ -72,6 +75,16 @@ if($action == "process")
 	{
 		if(empty($donation))
 			$errors["donation"] = "Please enter a donation amount.<br>";
+	}
+
+	// if direct debit directdebitauthorize
+	if($b == "deposit")
+	{
+		if(!isset($_POST['directdebitauthorize']))
+			if($lang == "de")
+				$errors["directdebitauthorize"] = "Nicht g&uuml;ltig ohne Einzugserm&auml;chtigung. <br>";
+			else
+				$errors["directdebitauthorize"] = "Not valid without direct debit authorization. <br>";
 	}
 }
 
@@ -303,8 +316,19 @@ else {
 				</tr><?
 				}
 			}
-		?></table>
-	</div>
+		?></table><?
+		if($lang == "de")
+		{
+			?><p><input type="checkbox" name="directdebitauthorize" value="authorize"> Ermächtigung zum Bankeinzug</p>
+			<p>Ich ermächtige den Kunstverein München e.V. den oben genannten Jahresmitgliedsbeitrag von meinem Konto mittels SEPA-Lastschrift einzuziehen. Zugleich weise ich mein Kreditinstitut an, diese Lastschrift einzulösen.</p><?
+		}
+		else
+		{
+			?><p><input type="checkbox" name="directdebitauthorize" value="authorize"> Direct debit authorization</p>
+			<p> I hereby authorize Kunstverein München e.V. to transfer the chosen annual membership amount from my bank account by SEPA direct debit.</p><?
+		}
+
+	?></div>
 	<div><?
 		if($lange == "de")
 		{
