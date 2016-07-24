@@ -4,7 +4,7 @@ require_once("lib/lib.php");
 
 $action = $_REQUEST['action'];
 $errors = NULL;
-$dev = true;
+$dev = false;
 if ($dev)
 	$errors["dev"] = "** Please try again in one hour. **<br>";
 
@@ -77,7 +77,7 @@ if($action == "process")
 			$errors["donation"] = "Please enter a donation amount.<br>";
 	}
 
-	// if direct debit directdebitauthorize
+	// validate direct deposit authorized
 	if($b == "deposit")
 	{
 		if(!isset($_POST['directdebitauthorize']))
