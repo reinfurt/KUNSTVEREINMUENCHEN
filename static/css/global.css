@@ -12,7 +12,7 @@ body {
 	font-size: 17px;
   	line-height: 20px;
   	font-family: neuzeit-s-book, Helvetica, sans-serif;
-  	color: #FF9900;
+  	color: #183029;
 }
 
 /* force safari to display fonts normally (fixed elements) */
@@ -26,14 +26,14 @@ a,
 .button {
 	text-decoration: none;
 	color: #fff;
-	background-color: #FF9900;
+	background-color: #183029;
 	padding-left: 1px;
 	padding-right: 1px;
 }
 
 a:hover,
 .button:hover {
-	color: #FF9900;
+	color: #183029;
 	background-color: #fff;
 }
 
@@ -42,14 +42,14 @@ a:hover,
 .press-image a,
 .exhibitions a {
 		
-	color: #FF9900;
+	color: #183029;
 	background-color: transparent;
 }
 
 #fixed-container a:hover,
 .exhibitions a:hover {
 	color: #fff;
-	background-color: #FF9900;
+	background-color: #183029;
 }
 
 a#controls {
@@ -107,7 +107,7 @@ li {
 input {
 	border-style: solid;
 	border-width:1px;
-	border-color: #FF9900;
+	border-color: #183029;
 	margin: 4px;
 	color: rgba(24, 48, 41, 1);
 	font-size: inherit;
@@ -116,7 +116,7 @@ input {
 
 input[type="submit"], input.submit {
 	color: white;
-  	background-color: #FF9900;
+  	background-color: #183029;
   	padding-left: 10px;
   	padding-right: 10px;
   	margin: 4px;
@@ -124,7 +124,7 @@ input[type="submit"], input.submit {
 
 input[type="submit"]:hover {
 	background-color: white;
-  	color: #FF9900;
+  	color: #183029;
 }
 
 input[type="text"] {
@@ -171,7 +171,7 @@ input[type="text"] {
 }
 
 .image-hover {
-	background-color: #FF9900;
+	background-color: #183029;
 }
 
 .caption {
@@ -307,7 +307,7 @@ a#controls {
 
 #lang > .selected a{
 	color: #fff;
-	background-color: #FF9900;
+	background-color: #183029;
 }
 
 
