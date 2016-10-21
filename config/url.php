@@ -10,6 +10,10 @@ class URL extends URL_Base
 		$urls = explode('/', $_SERVER['REQUEST_URI']);
 		$urls = array_slice($urls, 1);
 		
+        foreach ($urls as &$thisurl) {
+            $thisurl = urldecode($thisurl);
+        }
+
 		// check that the object that this URL refers to exists
 		try
 		{
