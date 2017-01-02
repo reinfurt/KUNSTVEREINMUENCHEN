@@ -71,7 +71,7 @@ a#controls:hover {
 
 img {
 	width: 100%;
-	background-color: white;
+	/* background-color: white; */
 	vertical-align: top;
 }
 
@@ -254,6 +254,15 @@ input[type="text"] {
 
 #logo.twitter {
 	width: 100%;
+}
+
+#logo.karel {
+	width: 200px;
+	text-align: center;
+}
+
+#logo.img {
+	background-color: #F00;
 }
 
 marquee#logo {

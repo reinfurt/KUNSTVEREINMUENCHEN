@@ -48,7 +48,9 @@ $lang_roots["en"] = 2;
 $lang_url["de"] = "de";
 $lang_url["en"] = "en";
 
-$nav = $oo->nav($uu->ids, $lang_roots[$lang]);
+$descending = TRUE;
+// $nav = $oo->nav($uu->ids, $lang_roots[$lang]);
+$nav = $oo->nav($uu->ids, $lang_roots[$lang], $descending);
 
 // detect mobile
 $is_mobile = (bool)preg_match('#\b(ip(hone|od|ad)|android|opera m(ob|in)i|windows (phone|ce)|blackberry|tablet'.
@@ -60,6 +62,8 @@ $is_home = ($uu->url == "en" || $uu->url == "de" || !$uu->id);
 $is_member_page = ($uri == "/de/mitgliedschaft/mitglied-werden") || ($uri == "/en/membership/apply");
 $is_press_page = ($uri == "/en/contact/presse") || ($uri == "/de/kontakt/presse");
 $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
+// turn on karel here
+// $is_karel = $uu->id == 3000; 
 
 require_once("lib/lib.php");
 
@@ -71,6 +75,14 @@ if($rr->wormhole)
 }
 else
 	$wormhole = get_cookie("wormhole");
+
+// old-fashioned w/o o-r-g/request voodoo
+if ($karel = $_GET["karel"])
+	set_cookie("karel", $karel);
+else
+	$karel = get_cookie("karel");
+if ($karel=="true")
+	$is_karel=$karel;
 
 // subscribe data
 $subscribe["de"]["url"] = "http://eepurl.com/bpAhHr";
@@ -103,11 +115,13 @@ $subscribe["en"]["text"] = "subscribe";
 			// hide on press page
 			$show_logo = $show_logo && !($is_press_page);
 			// and ds page
-			$show_logo = $show_logo && !$is_ds;
+			$show_logo = $show_logo && !$is_ds && !$is_karel;
 			if($show_logo)
 				require_once("logo.php");
 			elseif($is_ds)
 				require_once("ds.php");
+			elseif($is_karel)
+				require_once("karel.php");
 			?><div id="lang">
 				<span class="<? if($lang=="de") echo "selected";?>">
 					<a href="/de">de</a></span> /

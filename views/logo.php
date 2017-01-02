@@ -23,7 +23,7 @@ if(!$uu->id || $uu->id == 2 || $uu->id == 1)
 			document.getElementById("display").innerHTML = "k.m";
 	</script>
 </div><?
-}
+} 
 else
 {
 ?><div id="logo" class="centre">k.m</div><?
