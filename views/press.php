@@ -3,6 +3,12 @@ $media_arr = $oo->media($uu->id);
 ?><div id="main-container" class="no-gallery" style="width: 80%; margin-left: auto;">
 	<div class="content">
 		<div class="images"><?
+			// foreach($media_arr as $media) {
+				// credits
+				?><div class="press-credits">
+					Please include credit Kunstverein München for all uses offline and online.
+				</div><?
+			// }
 			foreach($media_arr as $media)
 			{
 				$media_url = m_url($media);
