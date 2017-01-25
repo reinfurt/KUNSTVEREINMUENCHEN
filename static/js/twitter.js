@@ -21,7 +21,8 @@ var display;
 
 var pointer;
 var max_length = 10;
-var logo_text = "k.m";
+// var logo_text = "k.m";
+var logo_text = " . ";
 var logo_delay = 1500;
 var logo_div; 
 
