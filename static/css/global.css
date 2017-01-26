@@ -265,7 +265,9 @@ input[type="text"] {
 }
 
 #logo.karel {
-	width: 200px;
+	width: 260px;
+	padding-top: 20px;
+	padding-left: 30px;
 	text-align: center;
 }
 
