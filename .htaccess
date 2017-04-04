@@ -14,8 +14,8 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^kunstverein-muenchen\.de$ [NC]
 RewriteRule ^(.*)$ http://www.kunstverein-muenchen.de/$1 [R=301,L]
 
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
 
 # contact 
 # RewriteRule ^de/kontakt/?$ index.php?id=14 [R]
@@ -78,7 +78,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule ^index.php$ index.php?id=5,4,55,1370 [R]
 
 # o-r-g
-RewriteRule ^OPEN-RECORDS-GENERATOR(.*)$ open-records-generator [R]
+# RewriteRule ^OPEN-RECORDS-GENERATOR(.*)$ open-records-generator [R]
 
 # direct everything to index.php
 RewriteCond %{REQUEST_FILENAME} !-f

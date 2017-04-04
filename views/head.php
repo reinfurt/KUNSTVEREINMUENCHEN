@@ -62,9 +62,7 @@ $is_home = ($uu->url == "en" || $uu->url == "de" || !$uu->id);
 $is_member_page = ($uri == "/de/mitgliedschaft/mitglied-werden") || ($uri == "/en/membership/apply");
 $is_press_page = ($uri == "/en/contact/presse") || ($uri == "/de/kontakt/presse");
 $is_ds = $uu->id == 1329 || $uu->id == 1370 || $uu->id == 1394;
-// $is_karel = $uu->id == 3000;			// show only on karel martens page 
-// $is_karel = $is_home != true;		// show on every page except home
-						// instead using karel-logo.php
+$is_karel = $uu->id == 1983;	
 require_once("lib/lib.php");
 
 // get / set cookies
@@ -75,17 +73,6 @@ if($rr->wormhole)
 }
 else
 	$wormhole = get_cookie("wormhole");
-
-/*
-// karel cookie for dev
-// old-fashioned w/o o-r-g/request voodoo
-if ($karel = $_GET["karel"])
-	set_cookie("karel", $karel);
-else
-	$karel = get_cookie("karel");
-if ($karel=="true")
-	$is_karel=$karel;
-*/
 
 // subscribe data
 $subscribe["de"]["url"] = "http://eepurl.com/bpAhHr";
@@ -118,12 +105,13 @@ $subscribe["en"]["text"] = "subscribe";
 			// hide on press page
 			$show_logo = $show_logo && !($is_press_page);
 			// and ds page
-			$show_logo = $show_logo && !$is_ds;
+			$show_logo = $show_logo && !$is_ds && !$is_karel;
 			if($show_logo)
-				// require_once("logo.php");
-				require_once("karel-logo.php");		// replace logo karel
+				require_once("logo.php");
 			elseif($is_ds)
 				require_once("ds.php");
+			elseif($is_karel)
+				require_once("karel-logo.php");		// replace logo karel
 			?><div id="lang">
 				<span class="<? if($lang=="de") echo "selected";?>">
 					<a href="/de">de</a></span> /
