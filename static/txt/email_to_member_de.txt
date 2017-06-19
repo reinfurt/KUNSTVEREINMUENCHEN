@@ -1,19 +1,20 @@
 Sehr geehrtes neues Mitglied,<br />
 <br />
-wir freuen uns sehr, dass Sie sich für eine Mitgliedschaft im Kunstverein München e.V. entschieden haben! <br />
+wir freuen uns sehr, dass Sie sich f&#252;r eine Mitgliedschaft im Kunstverein M&#252;nchen e.V. entschieden haben! <br />
 <br />
 Die Details zur Mitgliedschaft sind wie folgt:<br />
 <br />
-[type], € [donation<br />
+[type], &euro; [donation]<br />
+<br />
 <br />
 Bitte beachten Sie, dass sich die Mitgliedschaft jedes Jahr automatisch erneuert.<br />
 <br />
-Demnächst erhalten Sie von uns Ihren personalisierten Mitgliedsausweis und Ihre Rechnung über den Mitgliedsbeitrag.<br />
+Demn&#228;chst erhalten Sie von uns Ihren personalisierten Mitgliedsausweis und Ihre Rechnung &#252;ber den Mitgliedsbeitrag.<br />
 <br />
-Bei Fragen zu Ihrer Mitgliedschaft erreichen Sie uns unter 089/22 11 52 oder unter phoebe@kunstverein-muenchen.de.<br />
+Bei Fragen zu Ihrer Mitgliedschaft erreichen Sie uns telefonisch unter: 089 / 22 11 52 oder per Mail: mitglieder@kunstverein-muenchen.de<br />
 <br />
-Herzliche Grüße<br />
-Kunstverein München e.V.<br />
+Herzliche Gr&#252;&#223;e<br />
+Kunstverein M&#252;nchen e.V.<br />
 
 
 
