@@ -1,0 +1,60 @@
+Hello!<br />
+<br />
+A new membership has been [p/g] on the website.<br />
+<br />
+The membership information is as follows<br />
+<br />
+Membership type:<br />
+[type]<br />
+<br />
+Membership fee:<br />
+&#8364; [donation]<br />
+<br />
+--<br />
+<br />
+RECIPIENT ADDRESS<br />
+<br />
+[rname]<br />
+[rpartnername]<br />
+[rstreetaddress]<br />
+[rcity]<br />
+[rcountry]<br />
+[remail]<br />
+[rmobile]<br />
+[rbirthday]<br />
+<br />
+--<br />
+<br />
+SENDER ADDRESS<br />
+<br />
+[bname]<br />
+[bpartnername]<br />
+[bstreetaddress]<br />
+[bcity]<br />
+[bcountry]<br />
+[bemail]<br />
+[bmobile]<br />
+[bbirthday]<br />
+<br />
+--<br />
+<br />
+BANK INFORMATION<br />
+<br />
+Account Holder:<br />
+[holder]<br />
+<br />
+Credit Institute:<br />
+[bank]<br />
+<br />
+Account Number:<br />
+[account]<br />
+<br />
+IBAN:<br />
+[iban]<br />
+<br />
+BIC:<br />
+[bic]<br />
+<br />
+SWIFT:<br />
+[swift]<br />
+<br />
