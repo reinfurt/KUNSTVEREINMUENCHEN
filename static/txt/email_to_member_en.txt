@@ -1,3 +1,4 @@
+<img src='http://www.kunstverein-muenchen.de/media/png/logo.png'><br />
 Dear new member,<br />
 <br />
 Thank you for purchasing a membership at Kunstverein M&#252;nchen e.V!<br />
@@ -14,4 +15,7 @@ If you have any questions, please contact us via phone: +49 (0) 89 / 22 11 52 or
 <br />
 Best regards,<br />
 Kunstverein M&#252;nchen<br />
-
+<br />
+--<br />
+<br />
+<a href='http://www.kunstverein-muenchen.de'>http://www.kunstverein-muenchen.de</a><br />

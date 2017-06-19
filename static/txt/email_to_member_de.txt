@@ -1,3 +1,4 @@
+<img src='http://www.kunstverein-muenchen.de/media/png/logo.png'><br />
 Sehr geehrtes neues Mitglied,<br />
 <br />
 wir freuen uns sehr, dass Sie sich f&#252;r eine Mitgliedschaft im Kunstverein M&#252;nchen e.V. entschieden haben! <br />
@@ -14,7 +15,9 @@ Demn&#228;chst erhalten Sie von uns Ihren personalisierten Mitgliedsausweis und 
 Bei Fragen zu Ihrer Mitgliedschaft erreichen Sie uns telefonisch unter: 089 / 22 11 52 oder per Mail: mitglieder@kunstverein-muenchen.de<br />
 <br />
 Herzliche Gr&#252;&#223;e<br />
-Kunstverein M&#252;nchen e.V.<br />
-
-
+Kunstverein M&#252;nchen<br />
+<br />
+--<br />
+<br />
+<a href='http://www.kunstverein-muenchen.de'>http://www.kunstverein-muenchen.de</a><br />
 
