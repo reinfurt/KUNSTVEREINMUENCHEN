@@ -9,10 +9,14 @@ function send_mail($from, $to, $subject, $message)
 	// address headers
 	$header = "From: $from <$from>\r\n";
 	$header.= "X-X-Sender: $from\r\n";
-	
+
 	// mail program headers
 	$header.= "Message-ID: <".md5(uniqid(time()))."@{$_SERVER['SERVER_NAME']}>\r\n";
 	
+	// character encoding
+	$header.= "Content-Type: text/html; charset='UTF-8'";
+	$header.= "Content-Transfer-Encoding: 8bit";
+
 	mail($to, $subject, $message, $header, "-f$from");
 }
 

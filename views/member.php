@@ -80,7 +80,7 @@ if($action == "process")
 	// validate direct deposit authorized
 	if($b == "deposit")
 	{
-		if(empty($account))
+                if(empty($bank["iban"]))
                 {
                         if($lang == "de")
                                 $errors["deposit"] = "Nicht gültig ohne IBAN.<br>";
