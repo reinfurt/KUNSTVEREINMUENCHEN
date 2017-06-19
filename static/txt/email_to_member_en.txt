@@ -1,17 +1,17 @@
-Dear new member,
+Dear new member,<br />
+<br />
+Thank you for purchasing a membership at Kunstverein M&#252;nchen e.V!<br />
+<br />
+The details of the membership are as follows:<br />
+<br />
+[type], &euro; [donation]<br />
+<br />
+Please note that the membership will be renewed annually.<br />
+<br />
+Soon you will receive your personalised membership card as well as the invoice over the membership fee.<br />
+<br />
+If you have any questions, please contact us via phone: +49 (0) 89 / 22 11 52 or mail: mitglieder@kunstverein-muenchen.de<br />
+<br />
+Best regards,<br />
+Kunstverein M&#252;nchen<br />
 
-Thank you for purchasing a membership at Kunstverein M&#252;nchen e.V!
-
-The details of the membership are as follows: 
-
-[type], &euro; [donation]
-
-Please note that the membership will be renewed annually.
-
-Soon you will receive your personalised membership card as well as the invoice over the membership fee. 
-
-If you have any questions, please contact us via phone: +49 (0) 89 / 22 
-11 52 or mail: mitglieder@kunstverein-muenchen.de
-
-Best regards,
-Kunstverein M&#252;nchen

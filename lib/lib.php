@@ -16,7 +16,6 @@ function send_mail($from, $to, $subject, $message)
 	// character encoding
 	$header.= "Content-Type: text/html; charset='UTF-8'";
 	$header.= "Content-Transfer-Encoding: 8bit";
-
 	mail($to, $subject, $message, $header, "-f$from");
 }
 
