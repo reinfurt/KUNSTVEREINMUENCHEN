@@ -80,6 +80,13 @@ if($action == "process")
 	// validate direct deposit authorized
 	if($b == "deposit")
 	{
+		if(empty($account))
+                {
+                        if($lang == "de")
+                                $errors["deposit"] = "Nicht gültig ohne IBAN.<br>";
+                        else
+                                $errors["deposit"] = "Not valid without IBAN.<br>";
+                }
 		if(!isset($_POST['directdebitauthorize']))
 			if($lang == "de")
 				$errors["directdebitauthorize"] = "Nicht g&uuml;ltig ohne Einzugserm&auml;chtigung. <br>";
@@ -216,7 +223,7 @@ else {
 			><? echo $l; ?></label>
 			<span 
 				id="price<? echo $k; ?>"
-			><? if($i > 2)
+			><? if($i > 3)
 				{
 					if($lang == "de")
 						echo "(ab ";
@@ -225,10 +232,10 @@ else {
 				}
 				?>€ <? 
 				echo $p; 
-				if($i > 2) 
+				if($i > 3) 
 					echo") ";
 			?></span><?
-			if($i > 2) {
+			if($i > 3) {
 				if($lang == "de")
 				{
 				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="F&ouml;rdersumme"; ?><?
@@ -252,7 +259,11 @@ else {
 		}
 		if($r == "gift")
 		{
-		?><input type="checkbox" name="recipient_email" value="yes">Send membership card directly to recipient.<?
+			if($lang == "de") {
+				?><input type="checkbox" name="recipient_email" value="yes">Mitgliedsausweis direkt an Empfänger des Geschenks senden.<?
+			} else {
+				?><input type="checkbox" name="recipient_email" value="yes">Send membership card directly to recipient.<?
+			}
 		}
 		?><table><?
 			$keys = array_keys($addr);
