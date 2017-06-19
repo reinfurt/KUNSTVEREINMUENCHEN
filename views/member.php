@@ -223,7 +223,7 @@ else {
 			><? echo $l; ?></label>
 			<span 
 				id="price<? echo $k; ?>"
-			><? if($i > 3)
+			><? if($i > 4)
 				{
 					if($lang == "de")
 						echo "(ab ";
@@ -232,10 +232,10 @@ else {
 				}
 				?>€ <? 
 				echo $p; 
-				if($i > 3) 
+				if($i > 4) 
 					echo") ";
 			?></span><?
-			if($i > 3) {
+			if($i > 4) {
 				if($lang == "de")
 				{
 				?>€<input type="text" name="donation<? echo $k; ?>" placeholder="F&ouml;rdersumme"; ?><?

@@ -182,7 +182,10 @@ input[type="text"] {
 
 .membership-type:nth-child(2),
 .membership-type:nth-child(3),
-.membership-type:nth-child(4) {
+.membership-type:nth-child(4),
+.membership-type:nth-child(5),
+.membership-type:nth-child(6),
+.membership-type:nth-child(7) {
 	padding-top: 3px;
 	padding-bottom: 3px;
 }
