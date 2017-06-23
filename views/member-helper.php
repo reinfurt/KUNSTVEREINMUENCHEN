@@ -61,9 +61,10 @@ $bank["bic"]["label-de"] = "BIC";
 $bank["swift"]["label-en"] = "SWIFT";
 
 // CHANGE THIS WHEN GOING LIVE
+$km_email = "mitglieder@kunstverein-muenchen.de";
 // $km_email = "mitglieder@kunstverein-muenchen.de";
 // $km_email = "phoebe@kunstverein-muenchen.de";
-$km_email = "reinfurt@o-r-g.com";
+// $km_email = "reinfurt@o-r-g.com";
 // $km_email = "clara@kunstverein-muenchen.de";
 // $km_email = "lilyhealey1@gmail.com";
 // $km_email = "sarah@kunstverein-muenchen.de";
